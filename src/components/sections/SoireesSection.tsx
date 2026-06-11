@@ -31,7 +31,7 @@ export default function SoireesSection() {
           <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-kurkuma-yellow mb-3 sm:mb-4 block">
             Soirées & Cocktails
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-kurkuma-cream font-light mb-5 sm:mb-6 px-2">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-kurkuma-cream font-medium mb-5 sm:mb-6 px-2">
             Les soirées chez Kurkuma.
           </h2>
           <div className="flex justify-center mb-6 sm:mb-8">

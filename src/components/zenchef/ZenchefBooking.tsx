@@ -15,11 +15,11 @@ const variantClasses: Record<ZenchefBookingVariant, string> = {
   primary:
     "bg-kurkuma-yellow text-kurkuma-green hover:bg-kurkuma-yellow-light shadow-lg shadow-kurkuma-yellow/25 border border-transparent",
   outline:
-    "border border-kurkuma-yellow bg-transparent text-kurkuma-yellow hover:bg-kurkuma-yellow/10",
+    "border-2 border-kurkuma-yellow bg-transparent text-kurkuma-yellow hover:bg-kurkuma-yellow/10",
   ghost:
-    "border border-white/20 bg-transparent text-kurkuma-cream hover:border-kurkuma-yellow/50 hover:text-kurkuma-yellow",
+    "border-2 border-white/30 bg-transparent text-kurkuma-cream hover:border-kurkuma-yellow/50 hover:text-kurkuma-yellow",
   header:
-    "border border-kurkuma-yellow bg-transparent text-kurkuma-yellow hover:bg-kurkuma-yellow/10 !px-5 !py-2 !text-[11px] !min-h-[38px] !tracking-[0.15em] font-display",
+    "border-2 border-kurkuma-yellow bg-transparent text-kurkuma-yellow hover:bg-kurkuma-yellow/10 !px-5 !py-2.5 !text-xs xl:!text-sm !min-h-[40px] !tracking-[0.06em] font-nav font-semibold uppercase",
 };
 
 export default function ZenchefBooking({
@@ -36,7 +36,7 @@ export default function ZenchefBooking({
   };
 
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3 sm:py-3.5 text-[11px] sm:text-sm font-medium tracking-wide uppercase transition-all duration-300 rounded-sm min-h-[44px] w-full sm:w-auto";
+    "inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold tracking-[0.08em] sm:tracking-wide uppercase transition-all duration-300 rounded-sm min-h-[48px] w-full sm:w-auto";
 
   if (!isConfigured) {
     return (

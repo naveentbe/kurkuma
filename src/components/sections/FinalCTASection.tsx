@@ -26,7 +26,7 @@ export default function FinalCTASection() {
           </motion.span>
           <motion.h2
             variants={fadeInUp}
-            className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-kurkuma-cream font-light mb-5 sm:mb-6 px-2"
+            className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-kurkuma-cream font-medium mb-5 sm:mb-6 px-2"
           >
             Rejoignez-nous à Ettelbruck.
           </motion.h2>

@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import { isZenchefConfigured } from "@/lib/zenchef/config";
+import { normalizeZenchefBookingDetail } from "@/lib/reservations/mapBooking";
 import type { ReservationRecordInput } from "@/lib/reservations/types";
 
 type ZenchefStatus = "idle" | "ready";
@@ -21,13 +22,32 @@ interface ZenchefContextValue {
 
 export const ZenchefContext = createContext<ZenchefContextValue | null>(null);
 
-async function syncReservationToSheet(detail: ReservationRecordInput) {
+async function syncReservationToSheet(
+  detail: ReservationRecordInput & Record<string, unknown>
+) {
+  const normalized = normalizeZenchefBookingDetail(detail);
+
   try {
-    await fetch("/api/reservations", {
+    const response = await fetch("/api/reservations", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(detail),
+      body: JSON.stringify(normalized),
     });
+
+    const payload = (await response.json().catch(() => null)) as {
+      error?: string;
+      success?: boolean;
+    } | null;
+
+    if (!response.ok) {
+      console.error(
+        "[Zenchef] Reservation sync failed:",
+        payload?.error ?? response.statusText
+      );
+      return;
+    }
+
+    console.info("[Zenchef] Reservation saved to Google Sheets", normalized);
   } catch (error) {
     console.error("[Zenchef] Failed to sync reservation to Google Sheets", error);
   }
@@ -95,17 +115,35 @@ export default function ZenchefProvider({ children }: { children: ReactNode }) {
     if (!configured) return;
 
     const handleBookingCompleted = (event: Event) => {
-      const customEvent = event as CustomEvent<ReservationRecordInput>;
+      const customEvent = event as CustomEvent<
+        ReservationRecordInput & Record<string, unknown>
+      >;
       syncReservationToSheet(customEvent.detail ?? {});
     };
 
     window.addEventListener("zc-widget-booking-completed", handleBookingCompleted);
+
+    let unsubscribeWidgetListener: (() => void) | undefined;
+
+    waitForZenchefWidget().then((ready) => {
+      if (!ready || !window.ZenchefWidget?.on) return;
+
+      unsubscribeWidgetListener = window.ZenchefWidget.on(
+        "booking-completed",
+        (event) => {
+          syncReservationToSheet(
+            (event.detail ?? {}) as ReservationRecordInput & Record<string, unknown>
+          );
+        }
+      );
+    });
 
     return () => {
       window.removeEventListener(
         "zc-widget-booking-completed",
         handleBookingCompleted
       );
+      unsubscribeWidgetListener?.();
     };
   }, [configured]);
 

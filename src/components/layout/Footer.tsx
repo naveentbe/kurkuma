@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-kurkuma-yellow mb-4 sm:mb-6">
+            <h4 className="text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase text-kurkuma-yellow mb-4 sm:mb-6">
               Contact
             </h4>
             <ul className="space-y-3 sm:space-y-4 text-sm">
@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-kurkuma-yellow mb-4 sm:mb-6">
+            <h4 className="text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase text-kurkuma-yellow mb-4 sm:mb-6">
               Horaires
             </h4>
             <ul className="space-y-3 text-sm">
@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-kurkuma-yellow mb-4 sm:mb-6">
+            <h4 className="text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase text-kurkuma-yellow mb-4 sm:mb-6">
               Suivez-nous
             </h4>
             <a

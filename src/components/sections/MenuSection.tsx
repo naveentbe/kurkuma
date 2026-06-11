@@ -12,7 +12,7 @@ function MenuCategoryBlock({ category }: { category: MenuCategory }) {
       className="scroll-mt-32"
     >
       <div className="mb-8">
-        <h2 className="font-display text-2xl md:text-3xl text-kurkuma-charcoal font-light">
+        <h2 className="font-display text-2xl md:text-3xl text-kurkuma-charcoal font-medium">
           {category.title}
         </h2>
         {category.subtitle && (
@@ -63,7 +63,7 @@ export default function MenuSection() {
           <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-kurkuma-yellow mb-3 sm:mb-4 block">
             Notre Carte
           </span>
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-kurkuma-green font-light mb-5 sm:mb-6">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-kurkuma-green font-medium mb-5 sm:mb-6">
             Le Menu
           </h1>
           <p className="max-w-xl mx-auto text-kurkuma-warm-gray leading-relaxed">

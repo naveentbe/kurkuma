@@ -21,7 +21,7 @@ export default function JourSoirSection() {
           <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-kurkuma-yellow-dark mb-3 sm:mb-4 block">
             Du jour au soir
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl text-kurkuma-green font-light px-2">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl text-kurkuma-green font-medium px-2">
             Frais tout au long de la journée.
           </h2>
           <div className="flex justify-center mt-5 sm:mt-6">

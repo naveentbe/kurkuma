@@ -31,7 +31,7 @@ export default function SectionHeader({
     >
       {eyebrow && (
         <span
-          className={`inline-block text-[10px] sm:text-xs font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-4 ${
+          className={`inline-block text-xs sm:text-sm font-semibold tracking-[0.12em] sm:tracking-[0.18em] uppercase mb-3 sm:mb-4 ${
             light ? "text-kurkuma-yellow" : "text-kurkuma-yellow-dark"
           }`}
         >
@@ -39,7 +39,7 @@ export default function SectionHeader({
         </span>
       )}
       <h2
-        className={`font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-4 sm:mb-6 ${
+        className={`font-display font-medium text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-tight mb-4 sm:mb-6 ${
           light ? "text-kurkuma-cream" : "text-kurkuma-green"
         }`}
       >
@@ -50,8 +50,8 @@ export default function SectionHeader({
       </div>
       {subtitle && (
         <p
-          className={`text-sm sm:text-base md:text-lg leading-relaxed ${
-            light ? "text-kurkuma-cream/80" : "text-kurkuma-warm-gray"
+          className={`text-base sm:text-lg md:text-xl leading-relaxed ${
+            light ? "text-kurkuma-cream/90" : "text-kurkuma-warm-gray"
           }`}
         >
           {subtitle}

@@ -16,7 +16,7 @@ export default function IntroSection() {
           viewport={{ once: true, margin: "-80px" }}
         >
           <BrandDivider className="mb-8 sm:mb-10" />
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-kurkuma-warm-gray leading-relaxed font-light px-1">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-kurkuma-warm-gray leading-relaxed font-normal px-1">
             Une cuisine indienne moderne, fraîche et pleine de saveurs, servie
             dans un lieu pensé pour les déjeuners du quotidien, les dîners
             détendus et les longues conversations autour de la table.

@@ -22,7 +22,7 @@ export default function ContactSection() {
           <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-kurkuma-yellow-dark mb-3 sm:mb-4 block">
             Contact & Réservation
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl text-kurkuma-green font-light px-2">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl text-kurkuma-green font-medium px-2">
             Venez nous rendre visite
           </h2>
           <div className="flex justify-center mt-5 sm:mt-6">
@@ -39,7 +39,7 @@ export default function ContactSection() {
         >
           <motion.div variants={fadeInUp} className="brand-card p-6 sm:p-8 md:p-10 rounded-sm">
             <MapPin className="text-kurkuma-yellow mb-4" size={24} />
-            <h3 className="font-display text-lg sm:text-xl text-kurkuma-green mb-3">
+            <h3 className="font-display font-semibold text-lg sm:text-xl text-kurkuma-green mb-3">
               Adresse
             </h3>
             <p className="text-kurkuma-warm-gray leading-relaxed text-sm sm:text-base">
@@ -57,7 +57,7 @@ export default function ContactSection() {
 
           <motion.div variants={fadeInUp} className="brand-card p-6 sm:p-8 md:p-10 rounded-sm">
             <PhoneIcon size={24} className="mb-4" />
-            <h3 className="font-display text-lg sm:text-xl text-kurkuma-green mb-3">
+            <h3 className="font-display font-semibold text-lg sm:text-xl text-kurkuma-green mb-3">
               Réservation
             </h3>
             <p className="text-kurkuma-warm-gray mb-4 text-sm sm:text-base">
@@ -90,7 +90,7 @@ export default function ContactSection() {
             className="brand-card p-6 sm:p-8 md:p-10 rounded-sm md:col-span-2 lg:col-span-1"
           >
             <Clock className="text-kurkuma-yellow mb-4" size={24} />
-            <h3 className="font-display text-lg sm:text-xl text-kurkuma-green mb-3">
+            <h3 className="font-display font-semibold text-lg sm:text-xl text-kurkuma-green mb-3">
               Horaires
             </h3>
             <ul className="space-y-3">

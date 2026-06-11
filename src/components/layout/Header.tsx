@@ -56,11 +56,14 @@ export default function Header() {
   }, [isMobileOpen, closeMobileMenu]);
 
   const navLinkClass = (href: string) =>
-    `font-display text-xs xl:text-sm tracking-[0.15em] xl:tracking-[0.2em] uppercase transition-colors duration-300 py-2 whitespace-nowrap ${
+    `font-nav text-sm xl:text-[15px] font-medium tracking-[0.02em] transition-colors duration-300 py-2 whitespace-nowrap ${
       isActive(href)
-        ? "text-kurkuma-yellow underline underline-offset-[6px] decoration-kurkuma-yellow/80"
-        : "text-kurkuma-yellow/85 hover:text-kurkuma-yellow"
+        ? "text-kurkuma-yellow font-semibold border-b-2 border-kurkuma-yellow pb-1"
+        : "text-kurkuma-cream/90 hover:text-kurkuma-yellow"
     }`;
+
+  const phoneLinkClass =
+    "flex items-center gap-2 text-kurkuma-yellow hover:text-kurkuma-yellow-light transition-colors font-sans font-semibold tracking-wide tabular-nums";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-kurkuma-green border-b border-kurkuma-yellow/10 pt-[env(safe-area-inset-top)]">
@@ -90,10 +93,10 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4 xl:gap-5 shrink-0">
             <a
               href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 text-sm text-kurkuma-yellow hover:text-kurkuma-yellow-light transition-colors min-h-[44px] font-display tracking-wide"
+              className={`${phoneLinkClass} text-sm xl:text-base min-h-[44px]`}
             >
-              <PhoneIcon size={15} />
-              <span className="hidden xl:inline">{SITE.phone}</span>
+              <PhoneIcon size={16} />
+              <span>{SITE.phone}</span>
             </a>
             <ZenchefBooking
               label="Réserver"
@@ -102,13 +105,15 @@ export default function Header() {
             />
           </div>
 
-          <div className="flex lg:hidden items-center gap-1">
+          <div className="flex lg:hidden items-center gap-1 sm:gap-2">
             <a
               href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-              className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-kurkuma-yellow"
-              aria-label="Appeler le restaurant"
+              className={`${phoneLinkClass} text-xs sm:text-sm px-1.5 sm:px-2 min-h-[44px] max-w-[52vw] sm:max-w-none`}
+              aria-label={`Appeler ${SITE.phone}`}
             >
-              <PhoneIcon size={18} />
+              <PhoneIcon size={16} className="sm:hidden" />
+              <PhoneIcon size={18} className="hidden sm:block" />
+              <span className="truncate">{SITE.phone}</span>
             </a>
             <button
               type="button"
@@ -134,24 +139,24 @@ export default function Header() {
             aria-modal="true"
             aria-label="Menu de navigation"
           >
-            <nav className="container mx-auto px-4 sm:px-6 py-5 flex flex-col gap-0">
+            <nav className="container mx-auto px-4 sm:px-6 py-6 flex flex-col gap-0">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`${navLinkClass(link.href)} py-3.5 min-h-[44px] flex items-center border-b border-kurkuma-yellow/10 last:border-0 text-sm`}
+                  className={`${navLinkClass(link.href)} py-4 min-h-[48px] flex items-center border-b border-kurkuma-yellow/15 last:border-0 text-[17px] sm:text-lg`}
                   onClick={closeMobileMenu}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-4 flex flex-col gap-3">
+              <div className="pt-5 flex flex-col gap-4">
                 <a
                   href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-3 text-kurkuma-yellow py-2 min-h-[44px] font-display"
+                  className={`${phoneLinkClass} text-base sm:text-lg py-2 min-h-[48px]`}
                 >
                   <PhoneIcon size={18} />
-                  {SITE.phone}
+                  <span>{SITE.phone}</span>
                 </a>
                 <ZenchefBooking
                   label="Réserver"

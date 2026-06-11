@@ -37,10 +37,10 @@ export default function HeroSection() {
             priority
             className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-44 lg:w-44"
           />
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-kurkuma-yellow tracking-[0.15em] mt-5 sm:mt-6">
+          <h2 className="font-display font-semibold text-3xl sm:text-4xl md:text-5xl text-kurkuma-yellow tracking-[0.12em] sm:tracking-[0.15em] mt-5 sm:mt-6">
             KURKUMA
           </h2>
-          <p className="text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.35em] uppercase text-kurkuma-yellow/80 mt-2 sm:mt-3">
+          <p className="text-xs sm:text-sm font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-kurkuma-yellow mt-2 sm:mt-3">
             Cuisine indienne contemporaine
           </p>
         </motion.div>
@@ -55,7 +55,7 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.h1
-          className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl text-kurkuma-cream font-light leading-snug mb-4 sm:mb-5 px-1"
+          className="font-display font-medium text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] text-kurkuma-cream leading-snug mb-4 sm:mb-5 px-1"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -64,7 +64,7 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p
-          className="max-w-lg mx-auto text-sm sm:text-base text-kurkuma-cream/75 leading-relaxed mb-8 sm:mb-10 px-1"
+          className="max-w-lg mx-auto text-base sm:text-lg text-kurkuma-cream/90 leading-relaxed mb-8 sm:mb-10 px-1 font-normal"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.65 }}
@@ -78,13 +78,13 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <Button href="/menu" variant="outline" className="font-display !tracking-[0.12em] sm:!tracking-[0.15em]">
+          <Button href="/menu" variant="outline" className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2">
             Voir le Menu
           </Button>
           <ZenchefBooking
             label="Réserver une Table"
             variant="outline"
-            className="font-display !tracking-[0.12em] sm:!tracking-[0.15em]"
+            className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2"
           />
         </motion.div>
       </div>

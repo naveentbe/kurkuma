@@ -55,7 +55,7 @@ export default function PartageSection() {
             <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-kurkuma-yellow-dark mb-3 sm:mb-4 block">
               Le partage
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-kurkuma-green font-light mb-5 sm:mb-6">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-kurkuma-green font-medium mb-5 sm:mb-6">
               Tables partagées,
               <br />
               moments simples.

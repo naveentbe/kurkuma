@@ -20,7 +20,7 @@ const variants: Record<ButtonVariant, string> = {
   secondary:
     "bg-kurkuma-green text-kurkuma-cream hover:bg-kurkuma-green-dark shadow-lg shadow-kurkuma-green/20",
   outline:
-    "border border-kurkuma-yellow bg-transparent text-kurkuma-yellow hover:bg-kurkuma-yellow/10",
+    "border-2 border-kurkuma-yellow bg-transparent text-kurkuma-yellow hover:bg-kurkuma-yellow/10",
   ghost:
     "text-kurkuma-cream hover:text-kurkuma-yellow border border-white/20 hover:border-kurkuma-yellow/50",
 };
@@ -34,7 +34,7 @@ export default function Button({
   external = false,
 }: ButtonProps) {
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3 sm:py-3.5 text-[11px] sm:text-sm font-medium tracking-wide uppercase transition-all duration-300 rounded-sm min-h-[44px] w-full sm:w-auto";
+    "inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold tracking-[0.08em] sm:tracking-wide uppercase transition-all duration-300 rounded-sm min-h-[48px] w-full sm:w-auto";
 
   const combinedClasses = `${baseClasses} ${variants[variant]} ${className}`;
 
