@@ -51,8 +51,8 @@ function MenuCategoryBlock({ category }: { category: MenuCategory }) {
 
 export default function MenuSection() {
   return (
-    <section className="py-20 md:py-32 bg-white">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section className="py-16 sm:py-20 md:py-32 bg-kurkuma-cream">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <motion.div
           className="text-center mb-16"
           variants={fadeInUp}
@@ -60,10 +60,10 @@ export default function MenuSection() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <span className="text-xs tracking-[0.25em] uppercase text-kurkuma-burgundy mb-4 block">
+          <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-kurkuma-yellow mb-3 sm:mb-4 block">
             Notre Carte
           </span>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-kurkuma-charcoal font-light mb-6">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-kurkuma-green font-light mb-5 sm:mb-6">
             Le Menu
           </h1>
           <p className="max-w-xl mx-auto text-kurkuma-warm-gray leading-relaxed">

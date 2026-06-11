@@ -1,20 +1,13 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// Smooth scroll
-html {
-  scroll-behavior: smooth;
-}
-
-// Selection color
 ::selection {
-  background-color: rgba($kurkuma-gold, 0.3);
+  background-color: rgba($kurkuma-yellow, 0.3);
   color: $kurkuma-charcoal;
 }
 
-// Custom scrollbar
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -22,27 +15,24 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $kurkuma-gold-dark;
-  border-radius: 4px;
+  background: $kurkuma-yellow-dark;
+  border-radius: 3px;
 
   &:hover {
-    background: $kurkuma-gold;
+    background: $kurkuma-yellow;
   }
 }
 
-// Hero text reveal
 .hero-title {
   @include gold-gradient-text;
-  text-shadow: none;
 }
 
-// Image hover zoom
 .image-zoom-container {
   overflow: hidden;
 
   img,
   .zoom-image {
-    transition: transform 1.2s $transition-smooth;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &:hover img,
@@ -51,14 +41,48 @@ html {
   }
 }
 
-// Decorative line
 .decorative-line {
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, $kurkuma-gold, $kurkuma-gold-light);
+  background: linear-gradient(90deg, $kurkuma-yellow, $kurkuma-yellow-light);
 }
 
-// Grain texture overlay
+.brand-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 200px;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($kurkuma-yellow, 0.5)
+    );
+  }
+
+  &::after {
+    background: linear-gradient(
+      90deg,
+      rgba($kurkuma-yellow, 0.5),
+      transparent
+    );
+  }
+
+  .brand-divider-diamond {
+    width: 6px;
+    height: 6px;
+    background: $kurkuma-yellow;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+}
+
 .grain-overlay {
   position: relative;
 
@@ -72,13 +96,29 @@ html {
   }
 }
 
-// Section divider
 .section-divider {
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba($kurkuma-gold, 0.3) 50%,
+    rgba($kurkuma-yellow, 0.35) 50%,
     transparent
   );
+}
+
+.brand-card {
+  background: white;
+  border: 1px solid rgba($kurkuma-green, 0.06);
+  box-shadow: 0 4px 24px rgba($kurkuma-green, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba($kurkuma-green, 0.1);
+  }
+}
+
+.brand-card-dark {
+  background: $kurkuma-green;
+  border: 1px solid rgba($kurkuma-yellow, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/lib/animations";
+import BrandDivider from "@/components/ui/BrandDivider";
 
 interface SectionHeaderProps {
   eyebrow?: string;
@@ -22,7 +23,7 @@ export default function SectionHeader({
 
   return (
     <motion.div
-      className={`max-w-3xl mb-12 md:mb-16 ${alignClass}`}
+      className={`max-w-3xl mb-10 sm:mb-12 md:mb-16 ${alignClass}`}
       variants={fadeInUp}
       initial="hidden"
       whileInView="visible"
@@ -30,26 +31,26 @@ export default function SectionHeader({
     >
       {eyebrow && (
         <span
-          className={`inline-block text-xs font-medium tracking-[0.25em] uppercase mb-4 ${
-            light ? "text-kurkuma-gold" : "text-kurkuma-burgundy"
+          className={`inline-block text-[10px] sm:text-xs font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-4 ${
+            light ? "text-kurkuma-yellow" : "text-kurkuma-yellow-dark"
           }`}
         >
           {eyebrow}
         </span>
       )}
       <h2
-        className={`font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-6 ${
-          light ? "text-kurkuma-cream" : "text-kurkuma-charcoal"
+        className={`font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-4 sm:mb-6 ${
+          light ? "text-kurkuma-cream" : "text-kurkuma-green"
         }`}
       >
         {title}
       </h2>
-      <div
-        className={`decorative-line mb-6 ${align === "center" ? "mx-auto" : ""}`}
-      />
+      <div className={align === "center" ? "flex justify-center mb-4 sm:mb-6" : "mb-4 sm:mb-6"}>
+        <BrandDivider light={light} className={align === "left" ? "mx-0" : ""} />
+      </div>
       {subtitle && (
         <p
-          className={`text-base md:text-lg leading-relaxed ${
+          className={`text-sm sm:text-base md:text-lg leading-relaxed ${
             light ? "text-kurkuma-cream/80" : "text-kurkuma-warm-gray"
           }`}
         >

@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { SITE } from "@/lib/constants";
+import { SITE, LOGOS } from "@/lib/constants";
 import "./globals.css";
 import "@/styles/components.scss";
 
@@ -20,6 +20,13 @@ const outfit = Outfit({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#353a1c",
+};
+
 export const metadata: Metadata = {
   title: {
     default: `${SITE.name} — ${SITE.tagline}`,
@@ -35,11 +42,16 @@ export const metadata: Metadata = {
     "tandoori",
     "Kurkuma",
   ],
+  icons: {
+    icon: LOGOS.icon,
+    apple: LOGOS.icon,
+  },
   openGraph: {
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
     locale: "fr_LU",
     type: "website",
+    images: [LOGOS.vertical],
   },
 };
 

@@ -1,20 +1,41 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Logo from "@/components/ui/Logo";
+import PhoneIcon from "@/components/ui/PhoneIcon";
+import Button from "@/components/ui/Button";
 import { SITE, NAV_LINKS } from "@/lib/constants";
 
-export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+function useActiveHref() {
+  const pathname = usePathname();
+  const [hash, setHash] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const updateHash = () => setHash(window.location.hash);
+    updateHash();
+    window.addEventListener("hashchange", updateHash);
+    return () => window.removeEventListener("hashchange", updateHash);
+  }, [pathname]);
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/" && !hash;
+    if (href.startsWith("/#")) {
+      return pathname === "/" && hash === href.slice(1);
+    }
+    return pathname === href;
+  };
+
+  return isActive;
+}
+
+export default function Header() {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const isActive = useActiveHref();
+  const closeMobileMenu = useCallback(() => setIsMobileOpen(false), []);
 
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";
@@ -23,66 +44,85 @@ export default function Header() {
     };
   }, [isMobileOpen]);
 
-  return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-kurkuma-charcoal/95 backdrop-blur-md shadow-lg py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
-      <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
-        <Link href="/" className="group">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="font-display text-2xl md:text-3xl font-light text-kurkuma-cream tracking-wider">
-              Kurkuma
-            </span>
-            <span className="hidden sm:block text-[10px] tracking-[0.3em] uppercase text-kurkuma-gold/80 mt-0.5">
-              {SITE.tagline}
-            </span>
-          </motion.div>
-        </Link>
+  useEffect(() => {
+    if (!isMobileOpen) return;
 
-        <nav className="hidden lg:flex items-center gap-10">
-          {NAV_LINKS.map((link, i) => (
-            <motion.div
-              key={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * i, duration: 0.5 }}
-            >
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMobileMenu();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isMobileOpen, closeMobileMenu]);
+
+  const navLinkClass = (href: string) =>
+    `font-display text-xs xl:text-sm tracking-[0.15em] xl:tracking-[0.2em] uppercase transition-colors duration-300 py-2 whitespace-nowrap ${
+      isActive(href)
+        ? "text-kurkuma-yellow underline underline-offset-[6px] decoration-kurkuma-yellow/80"
+        : "text-kurkuma-yellow/85 hover:text-kurkuma-yellow"
+    }`;
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-kurkuma-green border-b border-kurkuma-yellow/10 pt-[env(safe-area-inset-top)]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div className="flex items-center justify-between gap-3 h-14 sm:h-16 lg:h-[4.5rem]">
+          <Link href="/" className="shrink-0 min-w-0" onClick={closeMobileMenu}>
+            <span className="sm:hidden">
+              <Logo variant="icon" priority />
+            </span>
+            <span className="hidden sm:block">
+              <Logo variant="horizontal" priority className="h-8 md:h-9 lg:h-10" />
+            </span>
+          </Link>
+
+          <nav className="hidden lg:flex items-center justify-center gap-5 xl:gap-8 flex-1 px-4">
+            {NAV_LINKS.map((link) => (
               <Link
+                key={link.href}
                 href={link.href}
-                className="text-sm tracking-widest uppercase text-kurkuma-cream/80 hover:text-kurkuma-gold transition-colors duration-300"
+                className={navLinkClass(link.href)}
               >
                 {link.label}
               </Link>
-            </motion.div>
-          ))}
-          <motion.a
-            href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-            className="flex items-center gap-2 text-sm text-kurkuma-gold hover:text-kurkuma-gold-light transition-colors"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            <Phone size={14} />
-            <span className="hidden xl:inline">{SITE.phone}</span>
-          </motion.a>
-        </nav>
+            ))}
+          </nav>
 
-        <button
-          type="button"
-          className="lg:hidden text-kurkuma-cream p-2"
-          onClick={() => setIsMobileOpen(!isMobileOpen)}
-          aria-label={isMobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
-        >
-          {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5 shrink-0">
+            <a
+              href={`tel:${SITE.phone.replace(/\s/g, "")}`}
+              className="flex items-center gap-2 text-sm text-kurkuma-yellow hover:text-kurkuma-yellow-light transition-colors min-h-[44px] font-display tracking-wide"
+            >
+              <PhoneIcon size={15} />
+              <span className="hidden xl:inline">{SITE.phone}</span>
+            </a>
+            <Button
+              href="/#contact"
+              variant="outline"
+              className="!px-5 !py-2 !text-[11px] !min-h-[38px] !w-auto !tracking-[0.15em] font-display"
+            >
+              Réserver
+            </Button>
+          </div>
+
+          <div className="flex lg:hidden items-center gap-1">
+            <a
+              href={`tel:${SITE.phone.replace(/\s/g, "")}`}
+              className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-kurkuma-yellow"
+              aria-label="Appeler le restaurant"
+            >
+              <PhoneIcon size={18} />
+            </a>
+            <button
+              type="button"
+              className="text-kurkuma-yellow p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-sm hover:bg-white/5 transition-colors"
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
+              aria-label={isMobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={isMobileOpen}
+            >
+              {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -91,26 +131,38 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-kurkuma-charcoal/98 backdrop-blur-lg border-t border-white/10"
+            className="lg:hidden bg-kurkuma-green border-t border-kurkuma-yellow/10 overflow-hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu de navigation"
           >
-            <nav className="container mx-auto px-6 py-8 flex flex-col gap-6">
+            <nav className="container mx-auto px-4 sm:px-6 py-5 flex flex-col gap-0">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-lg tracking-widest uppercase text-kurkuma-cream/90 hover:text-kurkuma-gold transition-colors"
-                  onClick={() => setIsMobileOpen(false)}
+                  className={`${navLinkClass(link.href)} py-3.5 min-h-[44px] flex items-center border-b border-kurkuma-yellow/10 last:border-0 text-sm`}
+                  onClick={closeMobileMenu}
                 >
                   {link.label}
                 </Link>
               ))}
-              <a
-                href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-2 text-kurkuma-gold"
-              >
-                <Phone size={16} />
-                {SITE.phone}
-              </a>
+              <div className="pt-4 flex flex-col gap-3">
+                <a
+                  href={`tel:${SITE.phone.replace(/\s/g, "")}`}
+                  className="flex items-center gap-3 text-kurkuma-yellow py-2 min-h-[44px] font-display"
+                >
+                  <PhoneIcon size={18} />
+                  {SITE.phone}
+                </a>
+                <Link
+                  href="/#contact"
+                  onClick={closeMobileMenu}
+                  className="inline-flex items-center justify-center w-full border border-kurkuma-yellow bg-transparent text-kurkuma-yellow hover:bg-kurkuma-yellow/10 px-5 py-3 text-[11px] font-display tracking-[0.15em] uppercase transition-all duration-300 rounded-sm min-h-[44px]"
+                >
+                  Réserver
+                </Link>
+              </div>
             </nav>
           </motion.div>
         )}

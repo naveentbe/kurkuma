@@ -36,7 +36,7 @@ export default function ImageCard({
         priority={priority}
       />
       {overlay && (
-        <div className="absolute inset-0 bg-gradient-to-t from-kurkuma-charcoal/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-kurkuma-green/60 via-transparent to-transparent" />
       )}
     </motion.div>
   );

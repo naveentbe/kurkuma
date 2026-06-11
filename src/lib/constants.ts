@@ -3,6 +3,9 @@ export const SITE = {
   tagline: "cuisine indienne contemporaine",
   description:
     "Cuisine indienne contemporaine à Ettelbruck. Déjeuners frais, tables à partager et soirées chaleureuses.",
+  heroHeadline: "Cuisine indienne contemporaine à Ettelbruck.",
+  heroDescription:
+    "Nichée rue Tschiderer à Ettelbruck, Kurkuma est un lieu chaleureux où traditions indiennes et esprit contemporain se rencontrent — des déjeuners frais, des tables à partager et des soirées pleines de saveurs.",
   address: "5, rue Tschiderer, L 9049 Ettelbruck",
   phone: "+352 621 960 076",
   email: "muktacollective@outlook.com",
@@ -20,9 +23,19 @@ export const HOURS = [
 
 export const NAV_LINKS = [
   { label: "Accueil", href: "/" },
-  { label: "Menu", href: "/menu" },
+  { label: "Esprit", href: "/#esprit" },
+  { label: "Cuisine", href: "/#cuisine" },
+  { label: "Soirées", href: "/#soirees" },
+  { label: "Galerie", href: "/#galerie" },
   { label: "Contact", href: "/#contact" },
 ] as const;
+
+export const LOGOS = {
+  horizontal: "/images/logo-horizontal.png",
+  vertical: "/images/logo-vertical.png",
+  icon: "/images/logo-icon.png",
+  instagram: "/images/icon-instagram.png",
+} as const;
 
 export const IMAGES = {
   hero: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&q=85",

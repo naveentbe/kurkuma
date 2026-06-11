@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Logo from "@/components/ui/Logo";
 import MenuSection from "@/components/sections/MenuSection";
 import FinalCTASection from "@/components/sections/FinalCTASection";
 
@@ -11,11 +12,9 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <>
-      <div className="pt-32 pb-8 bg-kurkuma-cream">
-        <div className="container mx-auto px-6 lg:px-12 text-center">
-          <span className="text-xs tracking-[0.35em] uppercase text-kurkuma-gold">
-            Kurkuma
-          </span>
+      <div className="pt-24 sm:pt-32 pb-6 sm:pb-8 bg-kurkuma-cream">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 flex justify-center">
+          <Logo variant="vertical" className="h-28 sm:h-36" />
         </div>
       </div>
       <MenuSection />

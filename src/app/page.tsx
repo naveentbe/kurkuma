@@ -1,5 +1,4 @@
 import HeroSection from "@/components/sections/HeroSection";
-import IntroSection from "@/components/sections/IntroSection";
 import EspritSection from "@/components/sections/EspritSection";
 import JourSoirSection from "@/components/sections/JourSoirSection";
 import CuisineSection from "@/components/sections/CuisineSection";
@@ -13,7 +12,6 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <IntroSection />
       <EspritSection />
       <JourSoirSection />
       <CuisineSection />

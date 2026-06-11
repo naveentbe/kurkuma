@@ -8,8 +8,8 @@ import { IMAGES } from "@/lib/constants";
 
 export default function CuisineSection() {
   return (
-    <section className="py-20 md:py-32 bg-kurkuma-charcoal text-kurkuma-cream overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="cuisine" className="py-16 sm:py-20 md:py-32 bg-kurkuma-green text-kurkuma-cream overflow-hidden scroll-mt-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <SectionHeader
           eyebrow="Notre cuisine"
           title="Fraîcheur et profondeur des saveurs."
@@ -58,14 +58,14 @@ export default function CuisineSection() {
               Des classiques réconfortants aux assiettes plus modernes, chaque
               plat est préparé avec attention du déjeuner jusqu&apos;au dîner.
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex gap-8 pt-4">
+            <motion.div variants={fadeInUp} className="grid grid-cols-3 gap-4 sm:gap-8 pt-4">
               {[
                 { label: "Frais", value: "100%" },
                 { label: "Épices", value: "Authentiques" },
                 { label: "Partage", value: "Au cœur" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <span className="block font-display text-2xl text-kurkuma-gold">
+                  <span className="block font-display text-xl sm:text-2xl text-kurkuma-yellow">
                     {stat.value}
                   </span>
                   <span className="text-xs tracking-widest uppercase text-kurkuma-cream/50">

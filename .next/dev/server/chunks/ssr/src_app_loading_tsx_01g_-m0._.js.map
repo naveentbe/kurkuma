@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/macbookpro/Documents/Naveenkumar-Professional/github/kurkuma/src/app/loading.tsx"],"sourcesContent":["export default function Loading() {\n  return (\n    <div className=\"fixed inset-0 z-[100] flex items-center justify-center bg-kurkuma-charcoal\">\n      <div className=\"text-center\">\n        <div className=\"font-display text-3xl text-kurkuma-gold mb-4 animate-pulse\">\n          Kurkuma\n        </div>\n        <div className=\"w-12 h-0.5 bg-kurkuma-gold/30 mx-auto overflow-hidden rounded-full\">\n          <div className=\"w-full h-full bg-kurkuma-gold animate-[shimmer_1.5s_ease-in-out_infinite] origin-left scale-x-0\" />\n        </div>\n      </div>\n    </div>\n  );\n}\n"],"names":["Loading","className"],"mappings":";;;;;;AAAe,SAASA;IACtB,qBACE,8OAAC;QAAIC,WAAU;kBACb,cAAA,8OAAC;YAAIA,WAAU;;8BACb,8OAAC;oBAAIA,WAAU;8BAA6D;;;;;;8BAG5E,8OAAC;oBAAIA,WAAU;8BACb,cAAA,8OAAC;wBAAIA,WAAU;;;;;;;;;;;;;;;;;;;;;;AAKzB"}}]
-}

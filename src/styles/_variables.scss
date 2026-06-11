@@ -1,14 +1,15 @@
-// Kurkuma Design Tokens
-$kurkuma-gold: #c9a227;
-$kurkuma-gold-light: #e8c547;
-$kurkuma-gold-dark: #9a7b1a;
-$kurkuma-burgundy: #6b1d2a;
-$kurkuma-burgundy-dark: #4a1219;
+$kurkuma-green: #353a1c;
+$kurkuma-green-dark: #252819;
+$kurkuma-yellow: #eaaa48;
+$kurkuma-yellow-light: #f0c06a;
+$kurkuma-yellow-dark: #c48f2e;
+$kurkuma-gold: #eaaa48;
+$kurkuma-gold-light: #f0c06a;
+$kurkuma-gold-dark: #c48f2e;
 $kurkuma-cream: #faf6f0;
 $kurkuma-cream-dark: #f0e8da;
-$kurkuma-charcoal: #1a1612;
-$kurkuma-warm-gray: #3d3530;
-$kurkuma-sage: #4a6741;
+$kurkuma-charcoal: #353a1c;
+$kurkuma-warm-gray: #5a5f4c;
 
-$transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
-$transition-base: 0.4s $transition-smooth;
+$transition-base: 0.3s ease;
+$transition-smooth: 0.6s cubic-bezier(0.4, 0, 0.2, 1);

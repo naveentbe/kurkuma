@@ -16,13 +16,13 @@ interface ButtonProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-kurkuma-gold text-kurkuma-charcoal hover:bg-kurkuma-gold-light shadow-lg shadow-kurkuma-gold/20",
+    "bg-kurkuma-yellow text-kurkuma-green hover:bg-kurkuma-yellow-light shadow-lg shadow-kurkuma-yellow/25",
   secondary:
-    "bg-kurkuma-burgundy text-white hover:bg-kurkuma-burgundy-dark shadow-lg shadow-kurkuma-burgundy/20",
+    "bg-kurkuma-green text-kurkuma-cream hover:bg-kurkuma-green-dark shadow-lg shadow-kurkuma-green/20",
   outline:
-    "border-2 border-kurkuma-gold text-kurkuma-gold hover:bg-kurkuma-gold hover:text-kurkuma-charcoal",
+    "border border-kurkuma-yellow bg-transparent text-kurkuma-yellow hover:bg-kurkuma-yellow/10",
   ghost:
-    "text-kurkuma-cream hover:text-kurkuma-gold border border-white/20 hover:border-kurkuma-gold/50",
+    "text-kurkuma-cream hover:text-kurkuma-yellow border border-white/20 hover:border-kurkuma-yellow/50",
 };
 
 export default function Button({
@@ -34,7 +34,7 @@ export default function Button({
   external = false,
 }: ButtonProps) {
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-medium tracking-wide uppercase transition-colors duration-300 rounded-sm";
+    "inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3 sm:py-3.5 text-[11px] sm:text-sm font-medium tracking-wide uppercase transition-all duration-300 rounded-sm min-h-[44px] w-full sm:w-auto";
 
   const combinedClasses = `${baseClasses} ${variants[variant]} ${className}`;
 
@@ -55,7 +55,7 @@ export default function Button({
     }
 
     return (
-      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
         <Link href={href} className={combinedClasses}>
           {children}
         </Link>

@@ -10,8 +10,8 @@ import { IMAGES, SITE } from "@/lib/constants";
 
 export default function InstagramSection() {
   return (
-    <section className="py-20 md:py-32 bg-kurkuma-cream">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="galerie" className="py-14 sm:py-20 md:py-32 bg-kurkuma-cream scroll-mt-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <SectionHeader
           eyebrow="Galerie"
           title="Suivez l'atmosphère."
@@ -19,7 +19,7 @@ export default function InstagramSection() {
         />
 
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -48,9 +48,9 @@ export default function InstagramSection() {
                   className="zoom-image object-cover"
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-kurkuma-charcoal/0 group-hover:bg-kurkuma-charcoal/30 transition-colors duration-500 flex items-center justify-center">
+                <div className="absolute inset-0 gallery-overlay bg-kurkuma-green/0 group-hover:bg-kurkuma-green/30 transition-colors duration-500 flex items-center justify-center">
                   <InstagramIcon
-                    className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="gallery-icon opacity-70 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     size={32}
                   />
                 </div>

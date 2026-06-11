@@ -8,8 +8,8 @@ import { IMAGES } from "@/lib/constants";
 
 export default function EspritSection() {
   return (
-    <section className="py-20 md:py-32 bg-white">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="esprit" className="py-16 sm:py-20 md:py-32 bg-kurkuma-cream scroll-mt-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
             variants={slideInLeft}
@@ -35,7 +35,7 @@ export default function EspritSection() {
                 temps — entre déjeuners ensoleillés, dîners détendus et longues
                 soirées d&apos;été.
               </motion.p>
-              <motion.p variants={fadeInUp} className="text-kurkuma-burgundy font-medium">
+              <motion.p variants={fadeInUp} className="text-kurkuma-green font-medium">
                 Une cuisine sincère, des assiettes à partager et des ingrédients
                 frais sont au cœur de tout ce que nous faisons.
               </motion.p>
