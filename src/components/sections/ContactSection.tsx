@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Mail, Clock, Car } from "lucide-react";
 import PhoneIcon from "@/components/ui/PhoneIcon";
+import ZenchefBooking from "@/components/zenchef/ZenchefBooking";
 import BrandDivider from "@/components/ui/BrandDivider";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { SITE, HOURS } from "@/lib/constants";
@@ -60,8 +61,13 @@ export default function ContactSection() {
               Réservation
             </h3>
             <p className="text-kurkuma-warm-gray mb-4 text-sm sm:text-base">
-              Appelez-nous pour réserver votre table.
+              Réservez en ligne ou appelez-nous directement.
             </p>
+            <ZenchefBooking
+              label="Réserver en ligne"
+              variant="outline"
+              className="mb-4 !w-full sm:!w-auto"
+            />
             <a
               href={`tel:${SITE.phone.replace(/\s/g, "")}`}
               className="inline-flex items-center gap-2 text-base sm:text-lg text-kurkuma-green hover:text-kurkuma-yellow transition-colors font-medium min-h-[44px]"

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
+import ZenchefBooking from "@/components/zenchef/ZenchefBooking";
 import Logo from "@/components/ui/Logo";
 import BrandDivider from "@/components/ui/BrandDivider";
 import { IMAGES, SITE } from "@/lib/constants";
@@ -80,9 +81,11 @@ export default function HeroSection() {
           <Button href="/menu" variant="outline" className="font-display !tracking-[0.12em] sm:!tracking-[0.15em]">
             Voir le Menu
           </Button>
-          <Button href="/#contact" variant="outline" className="font-display !tracking-[0.12em] sm:!tracking-[0.15em]">
-            Réserver une Table
-          </Button>
+          <ZenchefBooking
+            label="Réserver une Table"
+            variant="outline"
+            className="font-display !tracking-[0.12em] sm:!tracking-[0.15em]"
+          />
         </motion.div>
       </div>
 

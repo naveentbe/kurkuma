@@ -1,7 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
+import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ZenchefEmbed from "@/components/zenchef/ZenchefEmbed";
+import ZenchefProvider from "@/components/zenchef/ZenchefProvider";
+import {
+  ZENCHEF_SDK_SCRIPT_ID,
+  ZENCHEF_SDK_URL,
+  isZenchefConfigured,
+} from "@/lib/zenchef/config";
 import { SITE, LOGOS } from "@/lib/constants";
 import "./globals.css";
 import "@/styles/components.scss";
@@ -67,9 +75,19 @@ export default function RootLayout({
       className={`${cormorant.variable} ${outfit.variable}`}
     >
       <body className="antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ZenchefEmbed />
+        <ZenchefProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ZenchefProvider>
+        {isZenchefConfigured() ? (
+          <Script
+            id={ZENCHEF_SDK_SCRIPT_ID}
+            src={ZENCHEF_SDK_URL}
+            strategy="afterInteractive"
+          />
+        ) : null}
       </body>
     </html>
   );

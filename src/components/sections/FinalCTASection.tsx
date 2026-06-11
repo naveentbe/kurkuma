@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import InstagramIcon from "@/components/ui/InstagramIcon";
 import Button from "@/components/ui/Button";
+import ZenchefBooking from "@/components/zenchef/ZenchefBooking";
 import BrandDivider from "@/components/ui/BrandDivider";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { SITE } from "@/lib/constants";
@@ -43,9 +44,7 @@ export default function FinalCTASection() {
             variants={fadeInUp}
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-sm sm:max-w-none mx-auto"
           >
-            <Button href="/#contact" variant="primary">
-              Réserver une Table
-            </Button>
+            <ZenchefBooking label="Réserver une Table" variant="primary" />
             <Button href="/menu" variant="outline">
               Voir le Menu
             </Button>

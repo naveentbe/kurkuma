@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import PhoneIcon from "@/components/ui/PhoneIcon";
-import Button from "@/components/ui/Button";
+import ZenchefBooking from "@/components/zenchef/ZenchefBooking";
 import { SITE, NAV_LINKS } from "@/lib/constants";
 
 function useActiveHref() {
@@ -95,13 +95,11 @@ export default function Header() {
               <PhoneIcon size={15} />
               <span className="hidden xl:inline">{SITE.phone}</span>
             </a>
-            <Button
-              href="/#contact"
-              variant="outline"
-              className="!px-5 !py-2 !text-[11px] !min-h-[38px] !w-auto !tracking-[0.15em] font-display"
-            >
-              Réserver
-            </Button>
+            <ZenchefBooking
+              label="Réserver"
+              variant="header"
+              className="!w-auto"
+            />
           </div>
 
           <div className="flex lg:hidden items-center gap-1">
@@ -155,13 +153,11 @@ export default function Header() {
                   <PhoneIcon size={18} />
                   {SITE.phone}
                 </a>
-                <Link
-                  href="/#contact"
-                  onClick={closeMobileMenu}
-                  className="inline-flex items-center justify-center w-full border border-kurkuma-yellow bg-transparent text-kurkuma-yellow hover:bg-kurkuma-yellow/10 px-5 py-3 text-[11px] font-display tracking-[0.15em] uppercase transition-all duration-300 rounded-sm min-h-[44px]"
-                >
-                  Réserver
-                </Link>
+                <ZenchefBooking
+                  label="Réserver"
+                  variant="outline"
+                  onPress={closeMobileMenu}
+                />
               </div>
             </nav>
           </motion.div>
