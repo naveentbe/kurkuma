@@ -1,0 +1,84 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Smooth scroll
+html {
+  scroll-behavior: smooth;
+}
+
+// Selection color
+::selection {
+  background-color: rgba($kurkuma-gold, 0.3);
+  color: $kurkuma-charcoal;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $kurkuma-cream;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $kurkuma-gold-dark;
+  border-radius: 4px;
+
+  &:hover {
+    background: $kurkuma-gold;
+  }
+}
+
+// Hero text reveal
+.hero-title {
+  @include gold-gradient-text;
+  text-shadow: none;
+}
+
+// Image hover zoom
+.image-zoom-container {
+  overflow: hidden;
+
+  img,
+  .zoom-image {
+    transition: transform 1.2s $transition-smooth;
+  }
+
+  &:hover img,
+  &:hover .zoom-image {
+    transform: scale(1.06);
+  }
+}
+
+// Decorative line
+.decorative-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, $kurkuma-gold, $kurkuma-gold-light);
+}
+
+// Grain texture overlay
+.grain-overlay {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+}
+
+// Section divider
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba($kurkuma-gold, 0.3) 50%,
+    transparent
+  );
+}

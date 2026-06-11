@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf6f0;
+  --foreground: #1a1612;
+  --kurkuma-gold: #c9a227;
+  --kurkuma-gold-light: #e8c547;
+  --kurkuma-gold-dark: #9a7b1a;
+  --kurkuma-burgundy: #6b1d2a;
+  --kurkuma-burgundy-dark: #4a1219;
+  --kurkuma-cream: #faf6f0;
+  --kurkuma-cream-dark: #f0e8da;
+  --kurkuma-charcoal: #1a1612;
+  --kurkuma-warm-gray: #3d3530;
+  --kurkuma-sage: #4a6741;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-kurkuma-gold: var(--kurkuma-gold);
+  --color-kurkuma-gold-light: var(--kurkuma-gold-light);
+  --color-kurkuma-gold-dark: var(--kurkuma-gold-dark);
+  --color-kurkuma-burgundy: var(--kurkuma-burgundy);
+  --color-kurkuma-burgundy-dark: var(--kurkuma-burgundy-dark);
+  --color-kurkuma-cream: var(--kurkuma-cream);
+  --color-kurkuma-cream-dark: var(--kurkuma-cream-dark);
+  --color-kurkuma-charcoal: var(--kurkuma-charcoal);
+  --color-kurkuma-warm-gray: var(--kurkuma-warm-gray);
+  --color-kurkuma-sage: var(--kurkuma-sage);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-cormorant);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.container {
+  max-width: 1280px;
+}

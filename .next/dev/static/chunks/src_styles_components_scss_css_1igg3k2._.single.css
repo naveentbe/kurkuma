@@ -1,0 +1,72 @@
+/* [project]/src/styles/components.scss.css [app-client] (css) */
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  color: #1a1612;
+  background-color: #c9a2274d;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf6f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9a7b1a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a227;
+}
+
+.hero-title {
+  background: linear-gradient(135deg, #e8c547 0%, #c9a227 50%, #9a7b1a 100%);
+  -webkit-text-fill-color: #0000;
+  text-shadow: none;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.image-zoom-container {
+  overflow: hidden;
+}
+
+.image-zoom-container img, .image-zoom-container .zoom-image {
+  transition: transform 1.2s cubic-bezier(.22, 1, .36, 1);
+}
+
+.image-zoom-container:hover img, .image-zoom-container:hover .zoom-image {
+  transform: scale(1.06);
+}
+
+.decorative-line {
+  background: linear-gradient(90deg, #c9a227, #e8c547);
+  width: 60px;
+  height: 2px;
+}
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay:after {
+  content: "";
+  opacity: .03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  position: absolute;
+  inset: 0;
+}
+
+.section-divider {
+  background: linear-gradient(90deg, #0000, #c9a2274d 50%, #0000);
+  height: 1px;
+}
+
+/*# sourceMappingURL=src_styles_components_scss_css_1igg3k2._.single.css.map*/
