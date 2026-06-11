@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import Button from "@/components/ui/Button";
 import ZenchefBooking from "@/components/zenchef/ZenchefBooking";
 import Logo from "@/components/ui/Logo";
 import BrandDivider from "@/components/ui/BrandDivider";
@@ -73,18 +72,15 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.div
-          className="hero-actions flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto"
+          className="hero-actions flex justify-center w-full max-w-md sm:max-w-none mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <Button href="/menu" variant="outline" className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2">
-            Voir le Menu
-          </Button>
           <ZenchefBooking
             label="Réserver une Table"
             variant="outline"
-            className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2"
+            className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2 !w-full sm:!w-auto"
           />
         </motion.div>
       </div>
