@@ -45,6 +45,9 @@ export default function FinalCTASection() {
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-sm sm:max-w-none mx-auto"
           >
             <ZenchefBooking label="Réserver une Table" variant="primary" />
+            <Button href={SITE.menuOrderUrl} variant="outline" external>
+              Voir le Menu
+            </Button>
             <Button href={SITE.instagram} variant="ghost" external>
               <InstagramIcon size={16} />
               Instagram

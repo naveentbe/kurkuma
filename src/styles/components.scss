@@ -81,6 +81,20 @@
     transform: rotate(45deg);
     flex-shrink: 0;
   }
+
+  &.brand-divider-left {
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      background: linear-gradient(
+        90deg,
+        rgba($kurkuma-yellow, 0.5),
+        transparent
+      );
+    }
+  }
 }
 
 .grain-overlay {

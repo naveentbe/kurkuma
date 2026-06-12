@@ -81,11 +81,11 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${cormorant.variable} ${outfit.variable} ${dmSans.variable}`}
     >
-      <body className="antialiased">
+      <body className="antialiased overflow-x-hidden">
         <ZenchefEmbed />
         <ZenchefProvider>
           <Header />
-          <main>{children}</main>
+          <main className="w-full max-w-full overflow-x-hidden">{children}</main>
           <Footer />
         </ZenchefProvider>
         {isZenchefConfigured() ? (

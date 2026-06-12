@@ -12,7 +12,7 @@ export default function SoireesSection() {
     <section id="soirees" className="relative py-14 sm:py-20 md:py-32 overflow-hidden scroll-mt-24">
       <div className="absolute inset-0">
         <Image
-          src={IMAGES.cocktails}
+          src={IMAGES.soirees}
           alt="Cocktails et soirées chez Kurkuma"
           fill
           className="object-cover"

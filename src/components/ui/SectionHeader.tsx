@@ -45,8 +45,8 @@ export default function SectionHeader({
       >
         {title}
       </h2>
-      <div className={align === "center" ? "flex justify-center mb-4 sm:mb-6" : "mb-4 sm:mb-6"}>
-        <BrandDivider light={light} className={align === "left" ? "mx-0" : ""} />
+      <div className="mb-4 sm:mb-6">
+        <BrandDivider light={light} align={align} />
       </div>
       {subtitle && (
         <p

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Button from "@/components/ui/Button";
 import ZenchefBooking from "@/components/zenchef/ZenchefBooking";
 import Logo from "@/components/ui/Logo";
 import BrandDivider from "@/components/ui/BrandDivider";
@@ -10,18 +11,18 @@ import { IMAGES, SITE } from "@/lib/constants";
 
 export default function HeroSection() {
   return (
-    <section id="accueil" className="relative min-h-[100svh] min-h-[100dvh] flex items-center justify-center overflow-hidden scroll-mt-24">
-      <div className="absolute inset-0">
+    <section id="accueil" className="relative w-full min-h-[100svh] min-h-[100dvh] flex items-center justify-center overflow-hidden scroll-mt-24">
+      <div className="absolute inset-0 overflow-hidden">
         <Image
-          src={IMAGES.esprit}
+          src={IMAGES.hero}
           alt="Intérieur du restaurant Kurkuma à Ettelbruck"
           fill
-          className="object-cover scale-105"
+          className="object-cover"
           priority
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-overlay-black" />
       </div>
 
       <div className="relative z-10 w-full max-w-2xl mx-auto px-5 sm:px-8 text-center pt-[calc(4.5rem+env(safe-area-inset-top))] pb-20 sm:pb-24">
@@ -36,7 +37,7 @@ export default function HeroSection() {
             priority
             className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-44 lg:w-44"
           />
-          <h2 className="font-display font-semibold text-3xl sm:text-4xl md:text-5xl text-kurkuma-yellow tracking-[0.12em] sm:tracking-[0.15em] mt-5 sm:mt-6">
+          <h2 className="font-display font-semibold text-3xl sm:text-4xl md:text-5xl text-kurkuma-yellow tracking-[0.08em] sm:tracking-[0.12em] mt-5 sm:mt-6 break-words">
             KURKUMA
           </h2>
           <p className="text-xs sm:text-sm font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-kurkuma-yellow mt-2 sm:mt-3">
@@ -72,15 +73,23 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.div
-          className="hero-actions flex justify-center w-full max-w-md sm:max-w-none mx-auto"
+          className="hero-actions flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
+          <Button
+            href={SITE.menuOrderUrl}
+            variant="outline"
+            external
+            className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2"
+          >
+            Voir le Menu
+          </Button>
           <ZenchefBooking
             label="Réserver une Table"
             variant="outline"
-            className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2 !w-full sm:!w-auto"
+            className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2"
           />
         </motion.div>
       </div>

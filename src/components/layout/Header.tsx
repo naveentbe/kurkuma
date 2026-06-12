@@ -38,9 +38,16 @@ export default function Header() {
   const closeMobileMenu = useCallback(() => setIsMobileOpen(false), []);
 
   useEffect(() => {
-    document.body.style.overflow = isMobileOpen ? "hidden" : "";
+    if (isMobileOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
   }, [isMobileOpen]);
 
@@ -66,15 +73,15 @@ export default function Header() {
     "flex items-center gap-2 text-kurkuma-yellow hover:text-kurkuma-yellow-light transition-colors font-sans font-semibold tracking-wide tabular-nums";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-kurkuma-green border-b border-kurkuma-yellow/10 pt-[env(safe-area-inset-top)]">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full max-w-[100vw] overflow-x-hidden bg-kurkuma-green border-b border-kurkuma-yellow/10 pt-[env(safe-area-inset-top)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="flex items-center justify-between gap-3 h-14 sm:h-16 lg:h-[4.5rem]">
+        <div className="flex items-center justify-between gap-2 sm:gap-3 h-14 sm:h-16 lg:h-[4.5rem] min-w-0">
           <Link href="/" className="shrink-0 min-w-0" onClick={closeMobileMenu}>
             <span className="sm:hidden">
               <Logo variant="icon" priority />
             </span>
             <span className="hidden sm:block">
-              <Logo variant="horizontal" priority className="h-8 md:h-9 lg:h-10" />
+              <Logo variant="vertical" priority className="h-8 md:h-9 lg:h-10" />
             </span>
           </Link>
 
@@ -105,15 +112,14 @@ export default function Header() {
             />
           </div>
 
-          <div className="flex lg:hidden items-center gap-1 sm:gap-2">
+          <div className="flex lg:hidden items-center gap-0.5 sm:gap-1 shrink-0 min-w-0">
             <a
               href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-              className={`${phoneLinkClass} text-xs sm:text-sm px-1.5 sm:px-2 min-h-[44px] max-w-[52vw] sm:max-w-none`}
+              className={`${phoneLinkClass} p-2 min-h-[44px] min-w-[44px] sm:min-w-0 sm:px-2 justify-center sm:justify-start`}
               aria-label={`Appeler ${SITE.phone}`}
             >
-              <PhoneIcon size={16} className="sm:hidden" />
-              <PhoneIcon size={18} className="hidden sm:block" />
-              <span className="truncate">{SITE.phone}</span>
+              <PhoneIcon size={18} />
+              <span className="hidden sm:inline truncate">{SITE.phone}</span>
             </a>
             <button
               type="button"

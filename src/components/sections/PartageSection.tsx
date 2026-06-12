@@ -38,8 +38,8 @@ export default function PartageSection() {
             className="order-2 lg:order-1"
           >
             <ImageCard
-              src={IMAGES.sharing}
-              alt="Tables partagées chez Kurkuma"
+              src={IMAGES.partage}
+              alt="Salle du restaurant Kurkuma — tables partagées"
               className="aspect-[4/3] shadow-2xl"
               overlay
             />
@@ -60,7 +60,7 @@ export default function PartageSection() {
               <br />
               moments simples.
             </h2>
-            <BrandDivider className="mb-6 sm:mb-8 !mx-0" />
+            <BrandDivider align="left" className="mb-6 sm:mb-8" />
             <p className="text-kurkuma-warm-gray leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
               Kurkuma a été créé comme un lieu de quartier où chacun se sent le
               bienvenu. Étudiants, familles, collègues, couples et les habitués
