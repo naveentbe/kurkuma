@@ -100,6 +100,16 @@ export default function Footer() {
               </li>
               <li>
                 <FooterRow
+                  icon={<PhoneIcon size={16} />}
+                  href={`tel:${SITE.phoneSecondary.replace(/\s/g, "")}`}
+                >
+                  <span className="font-sans font-medium tabular-nums">
+                    {SITE.phoneSecondary}
+                  </span>
+                </FooterRow>
+              </li>
+              <li>
+                <FooterRow
                   icon={<Mail size={16} aria-hidden="true" />}
                   href={`mailto:${SITE.email}`}
                 >

@@ -7,11 +7,12 @@ export const SITE = {
   heroDescription:
     "Nichée rue Tschiderer à Ettelbruck, Kurkuma est un lieu chaleureux où traditions indiennes et esprit contemporain se rencontrent — des déjeuners frais, des tables à partager et soirées pleines de saveurs.",
   address: "5, rue Tschiderer, L 9049 Ettelbruck",
-  phone: "+352 621 960 076",
+  phone: "+352 26 30 06 05",
+  phoneSecondary: "+352 621 960 076",
   email: "muktacollective@outlook.com",
   instagram: "https://www.instagram.com/Kurkuma.Luxembourg",
   instagramHandle: "kurkuma.luxembourg",
-  menuOrderUrl: "https://www.myfoods.lu/",
+  menuOrderUrl: "/Menu_Kurkuma_Final.pdf",
   parking:
     "Parking communal gratuit pendant les heures de déjeuner et en soirée.",
 } as const;
