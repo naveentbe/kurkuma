@@ -4,12 +4,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
-import ReserveButton from "@/components/reservation/ReserveButton";
+import { useReservation } from "@/contexts/ReservationContext";
 import Logo from "@/components/ui/Logo";
-import BrandDivider from "@/components/ui/BrandDivider";
 import { IMAGES, SITE } from "@/lib/constants";
 
+const heroButtonClasses =
+  "font-nav !font-semibold !text-xs sm:!text-sm !tracking-[0.14em] !uppercase !whitespace-nowrap !rounded-md !border !border-kurkuma-yellow !bg-transparent !text-kurkuma-yellow hover:!bg-kurkuma-yellow/10 !px-8 sm:!px-10 !py-3.5 !min-h-[48px] !w-full sm:!w-auto !shadow-none antialiased";
+
 export default function HeroSection() {
+  const { open } = useReservation();
   return (
     <section id="accueil" className="relative w-full min-h-[100svh] min-h-[100dvh] flex items-center justify-center overflow-hidden scroll-mt-24">
       <div className="absolute inset-0 overflow-hidden">
@@ -25,40 +28,25 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-overlay-black" />
       </div>
 
-      <div className="relative z-10 w-full max-w-2xl mx-auto px-5 sm:px-8 text-center pt-[calc(4.5rem+env(safe-area-inset-top))] pb-20 sm:pb-24">
+      <div className="relative z-10 w-full max-w-3xl mx-auto px-5 sm:px-8 text-center pt-[calc(4.5rem+env(safe-area-inset-top))] pb-20 sm:pb-24">
         <motion.div
-          className="flex flex-col items-center mb-6 sm:mb-8"
+          className="flex flex-col items-center mb-8 sm:mb-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <Logo
-            variant="icon"
+            variant="horizontal"
             priority
-            className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-44 lg:w-44"
+            className="!h-auto w-full max-w-[260px] sm:max-w-[320px] md:max-w-[360px]"
           />
-          <h2 className="font-display font-semibold text-3xl sm:text-4xl md:text-5xl text-kurkuma-yellow tracking-[0.08em] sm:tracking-[0.12em] mt-5 sm:mt-6 break-words">
-            KURKUMA
-          </h2>
-          <p className="text-xs sm:text-sm font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-kurkuma-yellow mt-2 sm:mt-3">
-            Cuisine indienne contemporaine
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="flex justify-center mb-6 sm:mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <BrandDivider light className="max-w-[180px] sm:max-w-[220px]" />
         </motion.div>
 
         <motion.h1
           className="font-display font-medium text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] text-kurkuma-cream leading-snug mb-4 sm:mb-5 px-1"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
           {SITE.heroHeadline}
         </motion.h1>
@@ -73,7 +61,7 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.div
-          className="hero-actions flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto"
+          className="hero-actions flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -82,15 +70,17 @@ export default function HeroSection() {
             href={SITE.menuOrderUrl}
             variant="outline"
             external
-            className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2"
+            className={heroButtonClasses}
           >
             Voir le Menu
           </Button>
-          <ReserveButton
-            label="Réserver une Table"
+          <Button
+            onClick={open}
             variant="outline"
-            className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2"
-          />
+            className={heroButtonClasses}
+          >
+            Réserver une Table
+          </Button>
         </motion.div>
       </div>
 

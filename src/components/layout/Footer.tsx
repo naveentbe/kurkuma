@@ -74,7 +74,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-0 lg:items-start">
           {/* Brand */}
           <div className="flex flex-col items-center text-center sm:col-span-2 sm:items-start sm:text-left lg:col-span-4 lg:pr-6">
-            <Logo variant="vertical" className="mb-5 h-28 sm:h-32 lg:h-36" />
+            <Logo variant="vertical" className="mb-5 h-36 sm:h-40 md:h-44 lg:h-48" />
             <p className="max-w-sm text-sm leading-relaxed text-kurkuma-cream/65">
               Cuisine fraîche • Tables partagées • Hospitalité chaleureuse
             </p>

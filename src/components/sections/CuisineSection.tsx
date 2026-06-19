@@ -27,7 +27,7 @@ export default function CuisineSection() {
           >
             <ImageCard
               src={IMAGES.cuisine}
-              alt="Pakoras et chutney maison"
+              alt="Dessert maison Kurkuma"
               className="aspect-square col-span-1"
             />
             <ImageCard

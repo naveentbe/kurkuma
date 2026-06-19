@@ -72,11 +72,11 @@ export const FOOD_IMAGES = [
 export const IMAGES = {
   hero: `${RESTAURANT_IMAGES_PATH}/image13.png`,
   esprit: RESTAURANT_IMAGES[0],
-  lunch: RESTAURANT_IMAGES[1],
-  evening: RESTAURANT_IMAGES[2],
+  lunch: `${RESTAURANT_IMAGES_PATH}/image22.png`,
+  evening: `${RESTAURANT_IMAGES_PATH}/image20.png`,
   soirees: RESTAURANT_IMAGES[3],
   partage: RESTAURANT_IMAGES[7],
-  cuisine: FOOD_IMAGES[4],
+  cuisine: FOOD_IMAGES[2],
   spices: FOOD_IMAGES[1],
   cocktails: FOOD_IMAGES[2],
   gallery: [

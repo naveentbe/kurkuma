@@ -15,9 +15,9 @@ const LOGO_CONFIG: Record<
 > = {
   horizontal: {
     src: LOGOS.horizontal,
-    width: 220,
-    height: 64,
-    defaultClass: "h-9 w-auto sm:h-10 md:h-12",
+    width: 420,
+    height: 520,
+    defaultClass: "h-auto w-full max-w-[320px]",
   },
   vertical: {
     src: LOGOS.vertical,
@@ -43,7 +43,7 @@ export default function Logo({
   return (
     <Image
       src={config.src}
-      alt="Kurkuma — cuisine indienne contemporaine"
+      alt="Kurkuma"
       width={config.width}
       height={config.height}
       priority={priority}

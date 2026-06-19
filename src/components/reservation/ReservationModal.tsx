@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Armchair,
@@ -62,6 +62,7 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
   const [submitState, setSubmitState] = useState<"idle" | "loading">("idle");
   const [errorCode, setErrorCode] = useState<"generic" | "access_denied">("generic");
   const [contact, setContact] = useState({ name: "", email: "", phone: "" });
+  const customDateInputRef = useRef<HTMLInputElement>(null);
 
   const labels = getLabels(lang);
   const today = new Date();
@@ -130,6 +131,24 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
       setSelectedDate(new Date(`${value}T12:00:00`));
       setExpanded("seating");
     }
+  };
+
+  const openCustomDatePicker = () => {
+    const input = customDateInputRef.current;
+    if (!input) return;
+
+    input.focus();
+
+    if (typeof input.showPicker === "function") {
+      try {
+        input.showPicker();
+        return;
+      } catch {
+        // showPicker can throw if not triggered by a user gesture in some browsers
+      }
+    }
+
+    input.click();
   };
 
   const handleSeatingSelect = (id: string) => {
@@ -379,24 +398,43 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
                             </span>
                             <span className="mt-0.5 text-xs opacity-80">{labels.tomorrow}</span>
                           </button>
-                          <label
-                            className={`flex cursor-pointer flex-col items-center justify-center rounded-md border-2 px-2 py-3 text-center transition-colors ${
+                          <div
+                            role="button"
+                            tabIndex={0}
+                            onClick={openCustomDatePicker}
+                            onKeyDown={(event) => {
+                              if (event.key === "Enter" || event.key === " ") {
+                                event.preventDefault();
+                                openCustomDatePicker();
+                              }
+                            }}
+                            className={`relative flex cursor-pointer flex-col items-center justify-center rounded-md border-2 px-2 py-3 text-center transition-colors ${
                               customDate
                                 ? "border-kurkuma-green bg-kurkuma-green text-kurkuma-yellow"
                                 : "border-kurkuma-green/70 bg-kurkuma-yellow/30 hover:bg-kurkuma-yellow/50"
                             }`}
                           >
-                            <Calendar size={16} className="mb-1" />
-                            <span className="text-xs font-bold">{labels.other}</span>
+                            <Calendar size={16} className="mb-1 pointer-events-none" />
+                            <span className="text-xs font-bold pointer-events-none">
+                              {customDate
+                                ? formatDisplayDate(selectedDate, lang)
+                                : labels.other}
+                            </span>
+                            {customDate ? (
+                              <span className="mt-0.5 text-[10px] opacity-80 pointer-events-none">
+                                {labels.other}
+                              </span>
+                            ) : null}
                             <input
+                              ref={customDateInputRef}
                               type="date"
                               value={customDate}
                               min={toISODate(today)}
                               onChange={(e) => handleCustomDateChange(e.target.value)}
-                              className="sr-only"
+                              className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
                               aria-label={labels.selectDate}
                             />
-                          </label>
+                          </div>
                         </div>
                       </div>
                     )}

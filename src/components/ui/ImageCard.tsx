@@ -10,6 +10,7 @@ interface ImageCardProps {
   className?: string;
   priority?: boolean;
   overlay?: boolean;
+  fit?: "cover" | "contain";
 }
 
 export default function ImageCard({
@@ -18,6 +19,7 @@ export default function ImageCard({
   className = "",
   priority = false,
   overlay = false,
+  fit = "cover",
 }: ImageCardProps) {
   return (
     <motion.div
@@ -31,7 +33,7 @@ export default function ImageCard({
         src={src}
         alt={alt}
         fill
-        className="zoom-image object-cover"
+        className={`zoom-image ${fit === "contain" ? "object-contain" : "object-cover"}`}
         sizes="(max-width: 768px) 100vw, 50vw"
         priority={priority}
       />
