@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
-import ZenchefBooking from "@/components/zenchef/ZenchefBooking";
+import ReserveButton from "@/components/reservation/ReserveButton";
 import Logo from "@/components/ui/Logo";
 import BrandDivider from "@/components/ui/BrandDivider";
 import { IMAGES, SITE } from "@/lib/constants";
@@ -86,7 +86,7 @@ export default function HeroSection() {
           >
             Voir le Menu
           </Button>
-          <ZenchefBooking
+          <ReserveButton
             label="Réserver une Table"
             variant="outline"
             className="font-display font-semibold !text-sm sm:!text-base !tracking-[0.1em] sm:!tracking-[0.12em] !border-2"

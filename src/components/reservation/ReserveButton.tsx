@@ -1,17 +1,17 @@
 "use client";
 
-import { useZenchef } from "@/hooks/useZenchef";
+import { useReservation } from "@/contexts/ReservationContext";
 
-type ZenchefBookingVariant = "primary" | "outline" | "ghost" | "header";
+type ReserveButtonVariant = "primary" | "outline" | "ghost" | "header";
 
-interface ZenchefBookingProps {
+interface ReserveButtonProps {
   label?: string;
-  variant?: ZenchefBookingVariant;
+  variant?: ReserveButtonVariant;
   className?: string;
   onPress?: () => void;
 }
 
-const variantClasses: Record<ZenchefBookingVariant, string> = {
+const variantClasses: Record<ReserveButtonVariant, string> = {
   primary:
     "bg-kurkuma-yellow text-kurkuma-green hover:bg-kurkuma-yellow-light shadow-lg shadow-kurkuma-yellow/25 border border-transparent",
   outline:
@@ -22,13 +22,13 @@ const variantClasses: Record<ZenchefBookingVariant, string> = {
     "border-2 border-kurkuma-yellow bg-transparent text-kurkuma-yellow hover:bg-kurkuma-yellow/10 !px-5 !py-2.5 !text-xs xl:!text-sm !min-h-[40px] !tracking-[0.06em] font-nav font-semibold uppercase",
 };
 
-export default function ZenchefBooking({
+export default function ReserveButton({
   label = "Réserver une Table",
   variant = "outline",
   className = "",
   onPress,
-}: ZenchefBookingProps) {
-  const { open, isConfigured } = useZenchef();
+}: ReserveButtonProps) {
+  const { open } = useReservation();
 
   const handleClick = () => {
     onPress?.();
@@ -38,23 +38,9 @@ export default function ZenchefBooking({
   const baseClasses =
     "inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold tracking-[0.08em] sm:tracking-wide uppercase transition-all duration-300 rounded-sm min-h-[48px] w-full sm:w-auto";
 
-  if (!isConfigured) {
-    return (
-      <button
-        type="button"
-        disabled
-        className={`${baseClasses} ${variantClasses[variant]} ${className}`}
-        title="Zenchef restaurant ID is not configured"
-      >
-        {label}
-      </button>
-    );
-  }
-
   return (
     <button
       type="button"
-      data-zc-action="open"
       onClick={handleClick}
       aria-label={label}
       className={`${baseClasses} ${variantClasses[variant]} ${className}`}

@@ -1,27 +1,34 @@
 import { NextResponse } from "next/server";
 import {
-  hasMinimumBookingData,
-  mapZenchefBookingToReservation,
-  normalizeZenchefBookingDetail,
+  hasMinimumReservationData,
+  mapFormToReservation,
+  normalizeReservationInput,
 } from "@/lib/reservations/mapBooking";
 import { saveReservationToSheet } from "@/lib/reservations/saveToSheet";
-import type { ReservationRecordInput } from "@/lib/reservations/types";
+import { checkSheetsWebAppAccess } from "@/lib/reservations/submitReservation";
+import type { ReservationFormInput } from "@/lib/reservations/types";
+
+export async function GET() {
+  const health = await checkSheetsWebAppAccess();
+  return NextResponse.json(health, { status: health.ok ? 200 : 503 });
+}
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as ReservationRecordInput &
+    const body = (await request.json()) as ReservationFormInput &
       Record<string, unknown>;
 
-    const normalized = normalizeZenchefBookingDetail(body);
+    const normalized = normalizeReservationInput(body);
 
-    if (!hasMinimumBookingData(normalized)) {
+    if (!hasMinimumReservationData(normalized)) {
       return NextResponse.json(
-        { error: "Missing booking data", received: body },
+        { error: "Missing required reservation fields", received: body },
         { status: 400 }
       );
     }
 
-    const reservation = mapZenchefBookingToReservation(normalized);
+    const referer = request.headers.get("referer") ?? undefined;
+    const reservation = mapFormToReservation(normalized, { sourceUrl: referer });
     await saveReservationToSheet(reservation);
 
     return NextResponse.json({ success: true, reservation });

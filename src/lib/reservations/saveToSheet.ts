@@ -1,20 +1,17 @@
 import type { ReservationPayload } from "@/lib/reservations/types";
+import { getGoogleSheetsWebAppUrl } from "@/lib/env";
 
 function getSheetsWebAppUrl(): string {
-  const url = process.env.GOOGLE_SHEETS_WEB_APP_URL?.trim();
-
-  if (!url) {
-    throw new Error(
-      "GOOGLE_SHEETS_WEB_APP_URL is not configured. Add your deployed Apps Script /exec URL to .env.local"
-    );
-  }
-
-  return url;
+  return getGoogleSheetsWebAppUrl();
 }
 
 /**
  * Google Apps Script web apps redirect POST requests. Using text/plain avoids
  * CORS preflight issues and keeps the body intact through the redirect chain.
+ *
+ * Payload keys match the Google Sheet columns:
+ * Created At, Restaurant, Booking Date, Booking Time, Guests, Seating,
+ * Name, Phone, Email, Notes, Source URL, Submitted At
  */
 export async function saveReservationToSheet(
   reservation: ReservationPayload
@@ -27,15 +24,18 @@ export async function saveReservationToSheet(
       "Content-Type": "text/plain;charset=utf-8",
     },
     body: JSON.stringify({
-      reservationId: reservation.reservationId,
-      name: reservation.name,
-      email: reservation.email,
-      phone: reservation.phone,
-      date: reservation.date,
+      createdAt: reservation.createdAt,
+      restaurant: reservation.restaurant,
+      bookingDate: reservation.bookingDate,
+      bookingTime: reservation.bookingTime,
       guests: reservation.guests,
-      status: reservation.status,
-      slot: reservation.slot ?? "",
-      room: reservation.room ?? "",
+      seating: reservation.seating,
+      name: reservation.name,
+      phone: reservation.phone,
+      email: reservation.email,
+      notes: reservation.notes,
+      sourceUrl: reservation.sourceUrl,
+      submittedAt: reservation.submittedAt,
     }),
     redirect: "follow",
     cache: "no-store",

@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import PhoneIcon from "@/components/ui/PhoneIcon";
-import ZenchefBooking from "@/components/zenchef/ZenchefBooking";
+import ReserveButton from "@/components/reservation/ReserveButton";
 import { SITE, NAV_LINKS } from "@/lib/constants";
 
 function useActiveHref() {
@@ -105,7 +105,7 @@ export default function Header() {
               <PhoneIcon size={16} />
               <span>{SITE.phone}</span>
             </a>
-            <ZenchefBooking
+            <ReserveButton
               label="Réserver"
               variant="header"
               className="!w-auto"
@@ -164,7 +164,7 @@ export default function Header() {
                   <PhoneIcon size={18} />
                   <span>{SITE.phone}</span>
                 </a>
-                <ZenchefBooking
+                <ReserveButton
                   label="Réserver"
                   variant="outline"
                   onPress={closeMobileMenu}

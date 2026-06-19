@@ -111,12 +111,3 @@ body {
     max-width: 100%;
   }
 }
-
-/* Keep Zenchef floating widget above site chrome while scrolling */
-[class*="ZC_sdk__zc-iframe"],
-[class*="ZC_sdk__zc-popup"] {
-  position: fixed !important;
-  max-width: 100vw !important;
-  right: 0 !important;
-  left: auto !important;
-}

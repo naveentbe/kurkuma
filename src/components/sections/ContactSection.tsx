@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Mail, Clock, Car } from "lucide-react";
 import PhoneIcon from "@/components/ui/PhoneIcon";
-import ZenchefBooking from "@/components/zenchef/ZenchefBooking";
+import ReserveButton from "@/components/reservation/ReserveButton";
 import BrandDivider from "@/components/ui/BrandDivider";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { SITE, HOURS } from "@/lib/constants";
@@ -63,7 +63,7 @@ export default function ContactSection() {
             <p className="text-kurkuma-warm-gray mb-4 text-sm sm:text-base">
               Réservez en ligne ou appelez-nous directement.
             </p>
-            <ZenchefBooking
+            <ReserveButton
               label="Réserver en ligne"
               variant="outline"
               className="mb-4 !w-full sm:!w-auto"

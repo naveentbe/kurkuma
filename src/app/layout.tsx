@@ -1,15 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, DM_Sans, Outfit } from "next/font/google";
-import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import ZenchefEmbed from "@/components/zenchef/ZenchefEmbed";
-import ZenchefProvider from "@/components/zenchef/ZenchefProvider";
-import {
-  ZENCHEF_SDK_SCRIPT_ID,
-  ZENCHEF_SDK_URL,
-  isZenchefConfigured,
-} from "@/lib/zenchef/config";
+import { ReservationProvider } from "@/contexts/ReservationContext";
 import { SITE, LOGOS } from "@/lib/constants";
 import "./globals.css";
 import "@/styles/components.scss";
@@ -82,19 +75,11 @@ export default function RootLayout({
       className={`${cormorant.variable} ${outfit.variable} ${dmSans.variable}`}
     >
       <body className="antialiased overflow-x-hidden">
-        <ZenchefEmbed />
-        <ZenchefProvider>
+        <ReservationProvider>
           <Header />
           <main className="w-full max-w-full overflow-x-hidden">{children}</main>
           <Footer />
-        </ZenchefProvider>
-        {isZenchefConfigured() ? (
-          <Script
-            id={ZENCHEF_SDK_SCRIPT_ID}
-            src={ZENCHEF_SDK_URL}
-            strategy="afterInteractive"
-          />
-        ) : null}
+        </ReservationProvider>
       </body>
     </html>
   );
