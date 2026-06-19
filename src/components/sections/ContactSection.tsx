@@ -6,7 +6,9 @@ import PhoneIcon from "@/components/ui/PhoneIcon";
 import ReserveButton from "@/components/reservation/ReserveButton";
 import BrandDivider from "@/components/ui/BrandDivider";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { SITE, HOURS } from "@/lib/constants";
+import { getHours, SITE } from "@/lib/constants";
+
+const hours = getHours("fr");
 
 export default function ContactSection() {
   return (
@@ -94,7 +96,7 @@ export default function ContactSection() {
               Horaires
             </h3>
             <ul className="space-y-3">
-              {HOURS.map((hour) => (
+              {hours.map((hour) => (
                 <li
                   key={hour.days}
                   className="flex flex-col gap-0.5 sm:flex-row sm:justify-between sm:items-center text-sm text-kurkuma-warm-gray"

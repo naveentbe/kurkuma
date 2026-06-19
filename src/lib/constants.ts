@@ -23,11 +23,29 @@ export const SITE = {
 export const GOOGLE_SHEETS_WEB_APP_URL =
   "https://script.google.com/macros/s/AKfycbxih52d7BZC85VdtyYIXuGxHIdGDUFS3TxzDJyWSB8LZTlleyU56yIWAS5kaoMQbyFfdw/exec";
 
+export type SiteLang = "fr" | "en";
+
 export const HOURS = [
-  { days: "Mardi – Dimanche", time: "11:30 – 14:00" },
-  { days: "Mardi – Samedi", time: "18:00 – 21:30" },
-  { days: "Dimanche soir", time: "Fermé" },
+  {
+    days: { fr: "Mardi – Dimanche", en: "Tuesday – Sunday" },
+    time: { fr: "11:30 – 14:00", en: "11:30 AM – 2:00 PM" },
+  },
+  {
+    days: { fr: "Mardi – Samedi", en: "Tuesday – Saturday" },
+    time: { fr: "18:00 – 21:30", en: "6:00 PM – 9:30 PM" },
+  },
+  {
+    days: { fr: "Lundi – Dimanche soir", en: "Monday – Sunday evening" },
+    time: { fr: "Fermé", en: "Closed" },
+  },
 ] as const;
+
+export function getHours(lang: SiteLang) {
+  return HOURS.map(({ days, time }) => ({
+    days: days[lang],
+    time: time[lang],
+  }));
+}
 
 export const NAV_LINKS = [
   { label: "Accueil", href: "/" },

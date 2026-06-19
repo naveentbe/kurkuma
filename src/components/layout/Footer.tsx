@@ -5,7 +5,7 @@ import InstagramIcon from "@/components/ui/InstagramIcon";
 import FacebookIcon from "@/components/ui/FacebookIcon";
 import PhoneIcon from "@/components/ui/PhoneIcon";
 import BrandDivider from "@/components/ui/BrandDivider";
-import { HOURS, NAV_LINKS, SITE } from "@/lib/constants";
+import { getHours, NAV_LINKS, SITE } from "@/lib/constants";
 
 const FOOTER_QUICK_LINKS = [
   { label: "Menu", href: SITE.menuOrderUrl, external: true },
@@ -68,6 +68,8 @@ function FooterRow({
 }
 
 export default function Footer() {
+  const hours = getHours("fr");
+
   return (
     <footer className="w-full overflow-x-hidden bg-kurkuma-green text-kurkuma-cream/80 grain-overlay pb-[env(safe-area-inset-bottom)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 md:py-20">
@@ -124,7 +126,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <FooterHeading>Horaires</FooterHeading>
             <ul className="space-y-4">
-              {HOURS.map((hour) => (
+              {hours.map((hour) => (
                 <li key={hour.days}>
                   <FooterRow icon={<Clock size={16} aria-hidden="true" />}>
                     <span className="block font-medium text-kurkuma-cream">
