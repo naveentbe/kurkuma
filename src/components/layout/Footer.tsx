@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Clock, Mail, MapPin } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import InstagramIcon from "@/components/ui/InstagramIcon";
+import FacebookIcon from "@/components/ui/FacebookIcon";
 import PhoneIcon from "@/components/ui/PhoneIcon";
 import BrandDivider from "@/components/ui/BrandDivider";
 import { HOURS, NAV_LINKS, SITE } from "@/lib/constants";
@@ -142,13 +143,26 @@ export default function Footer() {
           {/* Social & links */}
           <div className="lg:col-span-3">
             <FooterHeading>Suivez-nous</FooterHeading>
-            <FooterRow
-              icon={<InstagramIcon size={18} />}
-              href={SITE.instagram}
-              external
-            >
-              {SITE.instagramHandle}
-            </FooterRow>
+            <ul className="space-y-4">
+              <li>
+                <FooterRow
+                  icon={<InstagramIcon size={18} />}
+                  href={SITE.instagram}
+                  external
+                >
+                  {SITE.instagramHandle}
+                </FooterRow>
+              </li>
+              <li>
+                <FooterRow
+                  icon={<FacebookIcon size={18} />}
+                  href={SITE.facebook}
+                  external
+                >
+                  Facebook
+                </FooterRow>
+              </li>
+            </ul>
 
             <div className="mt-8 border-t border-kurkuma-yellow/10 pt-6">
               <FooterHeading>Liens rapides</FooterHeading>

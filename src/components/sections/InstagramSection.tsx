@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import InstagramIcon from "@/components/ui/InstagramIcon";
+import FacebookIcon from "@/components/ui/FacebookIcon";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { fadeInUp, staggerContainer, scaleIn } from "@/lib/animations";
@@ -60,7 +61,7 @@ export default function InstagramSection() {
         </motion.div>
 
         <motion.div
-          className="text-center mt-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
@@ -69,6 +70,10 @@ export default function InstagramSection() {
           <Button href={SITE.instagram} variant="outline" external>
             <InstagramIcon size={16} />
             {SITE.instagramHandle}
+          </Button>
+          <Button href={SITE.facebook} variant="outline" external>
+            <FacebookIcon size={16} />
+            Facebook
           </Button>
         </motion.div>
       </div>

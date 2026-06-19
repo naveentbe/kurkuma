@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import InstagramIcon from "@/components/ui/InstagramIcon";
+import FacebookIcon from "@/components/ui/FacebookIcon";
 import Button from "@/components/ui/Button";
 import ZenchefBooking from "@/components/zenchef/ZenchefBooking";
 import BrandDivider from "@/components/ui/BrandDivider";
@@ -51,6 +52,10 @@ export default function FinalCTASection() {
             <Button href={SITE.instagram} variant="ghost" external>
               <InstagramIcon size={16} />
               Instagram
+            </Button>
+            <Button href={SITE.facebook} variant="ghost" external>
+              <FacebookIcon size={16} />
+              Facebook
             </Button>
           </motion.div>
         </motion.div>

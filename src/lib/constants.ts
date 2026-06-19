@@ -9,16 +9,18 @@ export const SITE = {
   address: "5, rue Tschiderer, L 9049 Ettelbruck",
   phone: "+352 26 30 06 05",
   phoneSecondary: "+352 621 960 076",
-  email: "muktacollective@outlook.com",
+  email: "Kurkuma.lu@gmail.com",
   instagram: "https://www.instagram.com/Kurkuma.Luxembourg",
   instagramHandle: "kurkuma.luxembourg",
+  facebook:
+    "https://www.facebook.com/GairolaZ?mibextid=wwXIfr&rdid=nKb0zbuKrsHwqBtD&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1JpUAuvpsw%2F%3Fmibextid%3DwwXIfr%26ref%3D1#",
   menuOrderUrl: "/Menu_Kurkuma_Final.pdf",
   parking:
     "Parking communal gratuit pendant les heures de déjeuner et en soirée.",
 } as const;
 
 export const HOURS = [
-  { days: "Mardi – Dimanche", time: "11:30 – 14:30" },
+  { days: "Mardi – Dimanche", time: "11:30 – 14:00" },
   { days: "Mardi – Samedi", time: "18:00 – 21:30" },
   { days: "Dimanche soir", time: "Fermé" },
 ] as const;
@@ -39,53 +41,47 @@ export const LOGOS = {
   instagram: "/images/icon-instagram.png",
 } as const;
 
-const RESTAURANT_IMAGE_PATH = "/images/restaurant-image";
+const RESTAURANT_IMAGES_PATH = "/images/restaurant-images-new";
+const FOOD_IMAGES_PATH = "/images/food-images";
 
 /** Local restaurant ambience photography */
 export const RESTAURANT_IMAGES = [
-  `${RESTAURANT_IMAGE_PATH}/processed-C420316C-358E-47CE-A7E8-8520AE0C39FA.jpeg`,
-  `${RESTAURANT_IMAGE_PATH}/processed-64C6ECCA-BBC6-442B-B919-BB8E7E424851.jpeg`,
-  `${RESTAURANT_IMAGE_PATH}/processed-D2A7A8B3-0237-4C54-AB46-B02DAB97CC07.jpeg`,
-  `${RESTAURANT_IMAGE_PATH}/processed-4BBE20D8-39DC-4BBB-A4A5-4B5163643900.jpeg`,
-  `${RESTAURANT_IMAGE_PATH}/processed-3E38C50B-9D58-43ED-B946-DD32825A5967.jpeg`,
-  `${RESTAURANT_IMAGE_PATH}/processed-28D152DB-5A74-48A7-8C38-8071519F4D1C.jpeg`,
-  `${RESTAURANT_IMAGE_PATH}/processed-B1E13F0A-94C2-47D5-B9C0-5E5A26D05F75.jpeg`,
-  `${RESTAURANT_IMAGE_PATH}/processed-6BD8A957-6EBD-4B9C-A861-496BFBBC56D6.jpeg`,
-  `${RESTAURANT_IMAGE_PATH}/processed-51387540-3361-4BEC-B168-55E9079507A5.jpeg`,
-  `${RESTAURANT_IMAGE_PATH}/processed-86F78470-2CF9-43F0-AB5F-AC344E2DB6D7.jpeg`,
+  `${RESTAURANT_IMAGES_PATH}/image16.png`,
+  `${RESTAURANT_IMAGES_PATH}/image7.png`,
+  `${RESTAURANT_IMAGES_PATH}/image9.png`,
+  `${RESTAURANT_IMAGES_PATH}/image10.png`,
+  `${RESTAURANT_IMAGES_PATH}/image11.png`,
+  `${RESTAURANT_IMAGES_PATH}/image12.png`,
+  `${RESTAURANT_IMAGES_PATH}/image13.png`,
+  `${RESTAURANT_IMAGES_PATH}/image14.png`,
 ] as const;
 
-/** Food and drink photography (external) */
-const FOOD_IMAGES = {
-  cuisine:
-    "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=1200&q=85",
-  spices:
-    "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=1200&q=85",
-  cocktails:
-    "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1200&q=85",
-  gallery: [
-    "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=800&q=85",
-    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=85",
-    "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=85",
-    "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=800&q=85",
-    "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&q=85",
-    "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=800&q=85",
-  ],
-} as const;
+/** Local food and drink photography */
+export const FOOD_IMAGES = [
+  `${FOOD_IMAGES_PATH}/image2.png`,
+  `${FOOD_IMAGES_PATH}/image4.png`,
+  `${FOOD_IMAGES_PATH}/image5.png`,
+  `${FOOD_IMAGES_PATH}/image6.png`,
+  `${FOOD_IMAGES_PATH}/image8.png`,
+] as const;
 
 export const IMAGES = {
-  hero: RESTAURANT_IMAGES[3],
-  esprit: RESTAURANT_IMAGES[1],
-  lunch: RESTAURANT_IMAGES[2],
-  evening: RESTAURANT_IMAGES[0],
-  soirees: RESTAURANT_IMAGES[4],
-  partage: RESTAURANT_IMAGES[9],
-  cuisine: FOOD_IMAGES.cuisine,
-  spices: FOOD_IMAGES.spices,
-  cocktails: FOOD_IMAGES.cocktails,
+  hero: `${RESTAURANT_IMAGES_PATH}/image13.png`,
+  esprit: RESTAURANT_IMAGES[0],
+  lunch: RESTAURANT_IMAGES[1],
+  evening: RESTAURANT_IMAGES[2],
+  soirees: RESTAURANT_IMAGES[3],
+  partage: RESTAURANT_IMAGES[7],
+  cuisine: FOOD_IMAGES[0],
+  spices: FOOD_IMAGES[1],
+  cocktails: FOOD_IMAGES[2],
   gallery: [
-    ...RESTAURANT_IMAGES.slice(5, 9),
-    ...FOOD_IMAGES.gallery,
+    RESTAURANT_IMAGES[4],
+    RESTAURANT_IMAGES[5],
+    FOOD_IMAGES[2],
+    FOOD_IMAGES[3],
+    FOOD_IMAGES[4],
   ],
   restaurant: RESTAURANT_IMAGES,
+  food: FOOD_IMAGES,
 } as const;
