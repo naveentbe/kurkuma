@@ -27,7 +27,7 @@ export default function CuisineSection() {
           >
             <ImageCard
               src={IMAGES.cuisine}
-              alt="Plats indiens contemporains"
+              alt="Pakoras et chutney maison"
               className="aspect-square col-span-1"
             />
             <ImageCard

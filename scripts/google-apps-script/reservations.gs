@@ -9,7 +9,7 @@
  * 5. Deploy → New deployment → type: Web app
  *    - Execute as: Me
  *    - Who has access: Anyone
- * 6. Copy the /exec URL into .env.local as NEXT_PUBLIC_GOOGLE_SHEETS_WEB_APP_URL
+ * 6. The /exec URL is configured in src/lib/constants.ts (GOOGLE_SHEETS_WEB_APP_URL)
  * 7. Test in an incognito window: open the /exec URL
  *    ✅ Expected: {"status":"ok","service":"kurkuma-reservations"}
  *    ❌ If you see "Access denied" or a login page, redeploy step 5

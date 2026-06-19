@@ -1,18 +1,19 @@
+import { GOOGLE_SHEETS_WEB_APP_URL } from "@/lib/constants";
 import { mapFormToReservation } from "@/lib/reservations/mapBooking";
 import type { ReservationFormInput, ReservationPayload } from "@/lib/reservations/types";
 
 export class ReservationSubmitError extends Error {
   constructor(
     message: string,
-    readonly code: "NOT_CONFIGURED" | "ACCESS_DENIED" | "HTTP_ERROR" | "SYNC_FAILED"
+    readonly code: "ACCESS_DENIED" | "HTTP_ERROR" | "SYNC_FAILED" | "API_ERROR"
   ) {
     super(message);
     this.name = "ReservationSubmitError";
   }
 }
 
-export function getClientSheetsWebAppUrl(): string {
-  return process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEB_APP_URL?.trim() ?? "";
+export function getSheetsWebAppUrl(): string {
+  return GOOGLE_SHEETS_WEB_APP_URL;
 }
 
 function buildSheetPayload(reservation: ReservationPayload) {
@@ -32,22 +33,10 @@ function buildSheetPayload(reservation: ReservationPayload) {
   };
 }
 
-/**
- * Submit directly from the browser to the Google Apps Script web app.
- * This is the recommended approach for Next.js + Google Sheets.
- */
-export async function submitReservationToSheet(
-  input: ReservationFormInput
+async function submitDirectToGoogle(
+  input: ReservationFormInput,
+  webAppUrl: string
 ): Promise<void> {
-  const webAppUrl = getClientSheetsWebAppUrl();
-
-  if (!webAppUrl) {
-    throw new ReservationSubmitError(
-      "NEXT_PUBLIC_GOOGLE_SHEETS_WEB_APP_URL is not configured in .env.local",
-      "NOT_CONFIGURED"
-    );
-  }
-
   const reservation = mapFormToReservation(input, {
     sourceUrl: typeof window !== "undefined" ? window.location.href : "",
   });
@@ -93,22 +82,57 @@ export async function submitReservationToSheet(
   }
 }
 
+async function submitViaApiRoute(input: ReservationFormInput): Promise<void> {
+  const response = await fetch("/api/reservations", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      ...input,
+      sourceUrl:
+        input.sourceUrl ??
+        (typeof window !== "undefined" ? window.location.href : ""),
+    }),
+  });
+
+  const data = (await response.json().catch(() => ({}))) as {
+    error?: string;
+    success?: boolean;
+  };
+
+  if (!response.ok) {
+    const message = data.error ?? `API request failed (${response.status})`;
+
+    if (message.includes("403") || message.includes("Access denied")) {
+      throw new ReservationSubmitError(message, "ACCESS_DENIED");
+    }
+
+    throw new ReservationSubmitError(message, "API_ERROR");
+  }
+}
+
+/** Submit reservation data to Google Sheets. */
+export async function submitReservationToSheet(
+  input: ReservationFormInput
+): Promise<void> {
+  try {
+    await submitDirectToGoogle(input, GOOGLE_SHEETS_WEB_APP_URL);
+  } catch (error) {
+    if (error instanceof ReservationSubmitError && error.code !== "HTTP_ERROR") {
+      throw error;
+    }
+    await submitViaApiRoute(input);
+  }
+}
+
 export async function checkSheetsWebAppAccess(): Promise<{
   ok: boolean;
   status: number;
   message: string;
 }> {
-  const webAppUrl = getClientSheetsWebAppUrl();
-
-  if (!webAppUrl) {
-    return {
-      ok: false,
-      status: 0,
-      message: "NEXT_PUBLIC_GOOGLE_SHEETS_WEB_APP_URL is not configured",
-    };
-  }
-
-  const response = await fetch(webAppUrl, { method: "GET", redirect: "follow" });
+  const response = await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+    method: "GET",
+    redirect: "follow",
+  });
   const text = await response.text().catch(() => "");
 
   if (!response.ok || text.includes("Access denied")) {
@@ -116,7 +140,7 @@ export async function checkSheetsWebAppAccess(): Promise<{
       ok: false,
       status: response.status,
       message:
-        "Access denied. In Apps Script: Deploy > New deployment > Web app > Execute as Me > Who has access: Anyone. Then open the /exec URL in an incognito window — you should see JSON, not a login page.",
+        "Access denied. In Apps Script: Deploy > New deployment > Web app > Execute as Me > Who has access: Anyone.",
     };
   }
 

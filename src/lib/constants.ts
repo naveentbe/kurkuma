@@ -19,6 +19,10 @@ export const SITE = {
     "Parking communal gratuit pendant les heures de déjeuner et en soirée.",
 } as const;
 
+/** Google Apps Script web app URL for reservation form submissions */
+export const GOOGLE_SHEETS_WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbxih52d7BZC85VdtyYIXuGxHIdGDUFS3TxzDJyWSB8LZTlleyU56yIWAS5kaoMQbyFfdw/exec";
+
 export const HOURS = [
   { days: "Mardi – Dimanche", time: "11:30 – 14:00" },
   { days: "Mardi – Samedi", time: "18:00 – 21:30" },
@@ -72,7 +76,7 @@ export const IMAGES = {
   evening: RESTAURANT_IMAGES[2],
   soirees: RESTAURANT_IMAGES[3],
   partage: RESTAURANT_IMAGES[7],
-  cuisine: FOOD_IMAGES[0],
+  cuisine: FOOD_IMAGES[4],
   spices: FOOD_IMAGES[1],
   cocktails: FOOD_IMAGES[2],
   gallery: [

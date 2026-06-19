@@ -1,24 +1,14 @@
 import type { ReservationPayload } from "@/lib/reservations/types";
-import { getGoogleSheetsWebAppUrl } from "@/lib/env";
-
-function getSheetsWebAppUrl(): string {
-  return getGoogleSheetsWebAppUrl();
-}
+import { GOOGLE_SHEETS_WEB_APP_URL } from "@/lib/constants";
 
 /**
  * Google Apps Script web apps redirect POST requests. Using text/plain avoids
  * CORS preflight issues and keeps the body intact through the redirect chain.
- *
- * Payload keys match the Google Sheet columns:
- * Created At, Restaurant, Booking Date, Booking Time, Guests, Seating,
- * Name, Phone, Email, Notes, Source URL, Submitted At
  */
 export async function saveReservationToSheet(
   reservation: ReservationPayload
 ): Promise<void> {
-  const webAppUrl = getSheetsWebAppUrl();
-
-  const response = await fetch(webAppUrl, {
+  const response = await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
     method: "POST",
     headers: {
       "Content-Type": "text/plain;charset=utf-8",

@@ -25,7 +25,7 @@ import {
 } from "@/lib/reservation/content";
 import {
   ReservationSubmitError,
-  getClientSheetsWebAppUrl,
+  getSheetsWebAppUrl,
   submitReservationToSheet,
 } from "@/lib/reservations/submitReservation";
 import { SITE } from "@/lib/constants";
@@ -179,7 +179,7 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
     }
   };
 
-  const sheetsTestUrl = getClientSheetsWebAppUrl();
+  const sheetsTestUrl = getSheetsWebAppUrl();
 
   const dateLabel = isToday
     ? labels.today

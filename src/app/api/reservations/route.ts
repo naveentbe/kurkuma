@@ -1,16 +1,32 @@
 import { NextResponse } from "next/server";
+import { GOOGLE_SHEETS_WEB_APP_URL } from "@/lib/constants";
 import {
   hasMinimumReservationData,
   mapFormToReservation,
   normalizeReservationInput,
 } from "@/lib/reservations/mapBooking";
 import { saveReservationToSheet } from "@/lib/reservations/saveToSheet";
-import { checkSheetsWebAppAccess } from "@/lib/reservations/submitReservation";
 import type { ReservationFormInput } from "@/lib/reservations/types";
 
 export async function GET() {
-  const health = await checkSheetsWebAppAccess();
-  return NextResponse.json(health, { status: health.ok ? 200 : 503 });
+  const response = await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+    method: "GET",
+    redirect: "follow",
+  });
+  const text = await response.text().catch(() => "");
+
+  const ok = response.ok && !text.includes("Access denied");
+
+  return NextResponse.json(
+    {
+      ok,
+      status: response.status,
+      message: ok
+        ? "Google Sheets webhook is reachable"
+        : "Google Sheets webhook returned Access denied — redeploy Apps Script with Anyone access",
+    },
+    { status: ok ? 200 : 503 }
+  );
 }
 
 export async function POST(request: Request) {
