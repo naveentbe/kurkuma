@@ -7,6 +7,8 @@ import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { IMAGES } from "@/lib/constants";
 import { Sun, Moon } from "lucide-react";
 
+const cardBodyPadding = "p-7 sm:p-10 md:p-12";
+
 export default function JourSoirSection() {
   return (
     <section className="py-14 sm:py-20 md:py-32 bg-kurkuma-cream grain-overlay">
@@ -40,9 +42,11 @@ export default function JourSoirSection() {
             <ImageCard
               src={IMAGES.lunch}
               alt="Déjeuner frais chez Kurkuma"
-              className="aspect-[16/10]"
+              fit="cover"
+              position="top"
+              imageClassName="!-top-[25px] !h-[calc(100%+25px)]"
             />
-            <div className="p-6 sm:p-8 md:p-10">
+            <div className={cardBodyPadding}>
               <div className="flex items-center gap-3 mb-4">
                 <Sun className="text-kurkuma-yellow shrink-0" size={20} />
                 <h3 className="font-display text-xl sm:text-2xl text-kurkuma-green">
@@ -64,9 +68,11 @@ export default function JourSoirSection() {
             <ImageCard
               src={IMAGES.evening}
               alt="Soirée chaleureuse chez Kurkuma"
-              className="aspect-[16/10]"
+              fit="cover"
+              position="top"
+              imageClassName="!-top-[25px] !h-[calc(100%+25px)]"
             />
-            <div className="p-6 sm:p-8 md:p-10">
+            <div className={cardBodyPadding}>
               <div className="flex items-center gap-3 mb-4">
                 <Moon className="text-kurkuma-yellow shrink-0" size={20} />
                 <h3 className="font-display text-xl sm:text-2xl text-kurkuma-cream">

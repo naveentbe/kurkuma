@@ -11,7 +11,15 @@ interface ImageCardProps {
   priority?: boolean;
   overlay?: boolean;
   fit?: "cover" | "contain";
+  position?: "center" | "top" | "bottom";
+  imageClassName?: string;
 }
+
+const positionClasses = {
+  center: "object-center",
+  top: "object-top",
+  bottom: "object-bottom",
+} as const;
 
 export default function ImageCard({
   src,
@@ -20,10 +28,12 @@ export default function ImageCard({
   priority = false,
   overlay = false,
   fit = "cover",
+  position = "center",
+  imageClassName = "",
 }: ImageCardProps) {
   return (
     <motion.div
-      className={`image-zoom-container relative overflow-hidden rounded-sm ${className}`}
+      className={`image-zoom-container relative h-96 w-full overflow-hidden rounded-sm ${className}`}
       variants={scaleIn}
       initial="hidden"
       whileInView="visible"
@@ -33,7 +43,7 @@ export default function ImageCard({
         src={src}
         alt={alt}
         fill
-        className={`zoom-image ${fit === "contain" ? "object-contain" : "object-cover"}`}
+        className={`zoom-image ${fit === "contain" ? "object-contain" : "object-cover"} ${positionClasses[position]} ${imageClassName}`}
         sizes="(max-width: 768px) 100vw, 50vw"
         priority={priority}
       />
