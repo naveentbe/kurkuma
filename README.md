@@ -45,6 +45,20 @@ A `netlify.toml` is included with basic settings.
 
 Bookings POST directly to Google Apps Script (configured in `js/config.js`). No backend server required.
 
+On each successful booking:
+
+- **Restaurant notification** → `reservation.kurkuma@gmail.com`
+- **Guest confirmation** → email address entered in the booking form
+
+### Google Apps Script setup
+
+1. Open your Google Sheet → **Extensions** → **Apps Script**
+2. Paste the contents of `scripts/google-apps-script/reservations.gs`
+3. Set `SHEET_ID` to your spreadsheet ID
+4. Run **authorizeScript** once and approve Sheet + Gmail permissions
+5. **Deploy** → **Manage deployments** → **Edit** → **New version** → **Deploy**
+6. Submit a test booking from the website to verify both emails arrive
+
 ## Editing content
 
 | What to change | Where |
