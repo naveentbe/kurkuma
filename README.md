@@ -1,72 +1,56 @@
-# Kurkuma — Cuisine Indienne Contemporaine
+# Kurkuma
 
-Site web professionnel pour le restaurant **Kurkuma**, situé à Ettelbruck, Luxembourg.
+Static website for **Kurkuma** — contemporary Indian cuisine in Ettelbruck, Luxembourg.
 
-## Stack Technique
+No build step. No npm. Plain HTML, CSS, and JavaScript.
 
-- **Next.js 16** (App Router)
-- **React 19** avec TypeScript
-- **Tailwind CSS 4** pour le styling utilitaire
-- **SCSS** pour les styles personnalisés (mixins, variables, animations)
-- **Framer Motion** pour les animations fluides
-- **Lucide React** pour les icônes
+## Project structure
 
-## Démarrage
+```
+index.html          Home page
+menu.html           Menu page
+404.html            Not found page
+css/styles.css      All styles
+js/                 JavaScript modules
+images/             Photos & logos
+Menu_Kurkuma_Final.pdf
+```
+
+## Local preview
+
+**Double-click `index.html`** in Finder to open the site in your browser — no server or install needed.
+
+Or use any static file server from the project root:
 
 ```bash
-npm install
-npm run dev
+python3 -m http.server 8080
 ```
 
-Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
+Then open [http://localhost:8080](http://localhost:8080)
 
-## Structure du Projet
+> Paths are relative so the site works when opened directly as a file (`file://`).
 
-```
-src/
-├── app/                    # Pages Next.js (App Router)
-│   ├── page.tsx            # Page d'accueil
-│   ├── menu/page.tsx       # Page menu
-│   ├── layout.tsx          # Layout global
-│   └── globals.css         # Styles globaux + Tailwind
-├── components/
-│   ├── layout/             # Header, Footer
-│   ├── sections/           # Sections de page (Hero, Cuisine, etc.)
-│   └── ui/                 # Composants réutilisables (Button, etc.)
-├── lib/
-│   ├── constants.ts        # Données du restaurant
-│   ├── menu.ts             # Contenu du menu
-│   └── animations.ts       # Variants Framer Motion
-└── styles/
-    ├── _variables.scss     # Design tokens
-    ├── _mixins.scss        # Mixins SCSS
-    └── components.scss     # Styles personnalisés
-```
+## Deployment
 
-## Personnalisation
+Upload the project root to any static host (Netlify, GitHub Pages, Cloudflare Pages, etc.).
 
-### Informations du restaurant
+- **Publish directory:** project root (`.`)
+- **404 page:** `404.html`
 
-Modifiez `src/lib/constants.ts` pour mettre à jour :
-- Adresse, téléphone, email
-- Liens Instagram, réservation, commande en ligne
-- Horaires d'ouverture
+### Netlify
 
-### Menu
+A `netlify.toml` is included with basic settings.
 
-Modifiez `src/lib/menu.ts` pour ajouter ou modifier les plats et catégories.
+## Reservations
 
-### Images
+Bookings POST directly to Google Apps Script (configured in `js/config.js`). No backend server required.
 
-Les images proviennent d'Unsplash. Remplacez les URLs dans `src/lib/constants.ts` par vos propres photos haute qualité pour un rendu final professionnel.
+## Editing content
 
-## Build Production
-
-```bash
-npm run build
-npm start
-```
-
-## Déploiement
-
-Compatible avec Vercel, Netlify, ou tout hébergeur supportant Next.js.
+| What to change | Where |
+|----------------|-------|
+| Contact info, hours, links | `js/config.js` |
+| Menu items | `js/config.js` → `MENU_CATEGORIES` |
+| Page copy | `index.html`, `menu.html` |
+| Styles | `css/styles.css` |
+| Images | `images/` |

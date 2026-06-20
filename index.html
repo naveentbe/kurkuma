@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#353a1c">
+  <meta name="description" content="Cuisine indienne contemporaine à Ettelbruck. Déjeuners frais, tables à partager et soirées chaleureuses.">
+  <title>Kurkuma — cuisine indienne contemporaine</title>
+  <link rel="icon" href="images/logo-icon.png">
+  <link rel="apple-touch-icon" href="images/logo-icon.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="header-logo" aria-label="Kurkuma — Accueil">
+          <img src="images/logo-icon.png" alt="Kurkuma" class="header-logo-icon" width="36" height="36">
+          <img src="images/logo-vertical.png" alt="Kurkuma" class="header-logo-vertical" width="120" height="40">
+        </a>
+
+        <nav class="header-nav" aria-label="Navigation principale">
+          <a href="index.html" class="nav-link">Accueil</a>
+          <a href="#esprit" class="nav-link">Esprit</a>
+          <a href="#cuisine" class="nav-link">Cuisine</a>
+          <a href="#soirees" class="nav-link">Soirées</a>
+          <a href="#galerie" class="nav-link">Galerie</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="tel:+35226300605" class="header-phone">
+            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +352 26 30 06 05
+          </a>
+          <button type="button" class="btn btn-outline btn-header" data-open-reservation>Réserver</button>
+        </div>
+
+        <div class="header-mobile-actions">
+          <a href="tel:+35226300605" class="header-phone" aria-label="Appeler +352 26 30 06 05">
+            <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+          <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Ouvrir le menu">
+            <svg id="menu-icon-open" class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <svg id="menu-icon-close" class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" hidden><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu de navigation">
+      <nav class="container">
+        <a href="index.html" class="mobile-nav-link">Accueil</a>
+        <a href="#esprit" class="mobile-nav-link">Esprit</a>
+        <a href="#cuisine" class="mobile-nav-link">Cuisine</a>
+        <a href="#soirees" class="mobile-nav-link">Soirées</a>
+        <a href="#galerie" class="mobile-nav-link">Galerie</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <div class="mobile-menu-footer">
+          <a href="tel:+35226300605" class="header-phone">+352 26 30 06 05</a>
+          <button type="button" class="btn btn-outline btn-full" data-open-reservation>Réserver</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="accueil" class="hero scroll-mt">
+      <div class="hero-bg">
+        <img src="images/restaurant-images-new/image13.webp" alt="Intérieur du restaurant Kurkuma à Ettelbruck">
+        <div class="hero-overlay"></div>
+        <div class="hero-gradient"></div>
+      </div>
+      <div class="hero-content">
+        <img src="images/logo-horizontal.png" alt="Kurkuma — Cuisine indienne contemporaine" class="hero-logo animate-on-scroll">
+        <h1 class="hero-title animate-on-scroll">Cuisine indienne contemporaine à Ettelbruck.</h1>
+        <p class="hero-desc animate-on-scroll">Nichée rue Tschiderer à Ettelbruck, Kurkuma est un lieu chaleureux où traditions indiennes et esprit contemporain se rencontrent — des déjeuners frais, des tables à partager et soirées pleines de saveurs.</p>
+        <div class="hero-actions animate-on-scroll">
+          <a href="Menu_Kurkuma_Final.pdf" class="btn btn-outline" target="_blank" rel="noopener">Voir le Menu</a>
+          <button type="button" class="btn btn-outline" data-open-reservation>Réserver une Table</button>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </section>
+
+    <!-- Esprit -->
+    <section id="esprit" class="section-padding bg-cream scroll-mt">
+      <div class="container">
+        <div class="grid-2">
+          <div class="animate-on-scroll animate-slide-left">
+            <div class="section-header left">
+              <span class="section-eyebrow">L'esprit de Kurkuma</span>
+              <h2 class="section-title">Un lieu pour tous.</h2>
+              <div class="brand-divider left" style="margin-top:1.5rem"><span class="brand-divider-diamond"></span></div>
+            </div>
+            <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:1.5rem;color:var(--kurkuma-warm-gray);line-height:1.7">
+              <p>Kurkuma est une cuisine et bar indien contemporain imaginé autour du goût, du partage et de l'hospitalité.</p>
+              <p>Des déjeuners rapides en semaine aux dîners en famille et soirées entre amis, le lieu suit naturellement le rythme de la journée — toujours chaleureux, vivant et accueillant. À l'intérieur comme en terrasse, Kurkuma invite à prendre son temps — entre déjeuners ensoleillés, dîners détendus et longues soirées d'été.</p>
+              <p class="text-green" style="font-weight:500">Une cuisine sincère, des assiettes à partager et des ingrédients frais sont au cœur de tout ce que nous faisons.</p>
+            </div>
+          </div>
+          <div class="animate-on-scroll animate-slide-right">
+            <div class="image-zoom-container image-card aspect-4-5" style="box-shadow:0 25px 50px rgba(0,0,0,0.15)">
+              <img src="images/restaurant-images-new/image16.webp" alt="L'ambiance chaleureuse de Kurkuma">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jour / Soir -->
+    <section class="section-padding bg-cream grain-overlay">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-eyebrow">Du jour au soir</span>
+          <h2 class="section-title">Frais tout au long de la journée.</h2>
+          <div class="brand-divider" style="margin:1.5rem auto 0"><span class="brand-divider-diamond"></span></div>
+        </div>
+        <div class="grid-2-cards" style="margin-top:2.5rem">
+          <div class="brand-card animate-on-scroll" style="border-radius:2px;overflow:hidden">
+            <div class="image-card fit-top"><img src="images/restaurant-images-new/Firefly-1.webp" alt="Déjeuner frais chez Kurkuma"></div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <svg class="text-yellow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h3 class="card-title">Le jour</h3>
+              </div>
+              <p class="text-warm-gray" style="line-height:1.7;margin-bottom:1rem">Des déjeuners équilibrés, des plats préparés avec soin et des saveurs vibrantes pensés pour le quotidien.</p>
+              <p class="text-green" style="font-size:0.875rem;font-weight:500;font-style:italic">Rapide quand il le faut. Détendu quand on veut prendre son temps.</p>
+            </div>
+          </div>
+          <div class="brand-card-dark animate-on-scroll" style="border-radius:2px;overflow:hidden">
+            <div class="image-card fit-top"><img src="images/restaurant-images-new/Firefly-2.webp" alt="Soirée chaleureuse chez Kurkuma"></div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <svg class="text-yellow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <h3 class="card-title light">Le soir</h3>
+              </div>
+              <p class="text-cream-muted" style="line-height:1.7;margin-bottom:1rem">Quand les lumières se tamisent, Kurkuma devient un lieu de partage autour de cocktails, de plats généreux et de longues soirées conviviales.</p>
+              <p class="text-yellow" style="font-size:0.875rem;font-weight:500;font-style:italic">Des saveurs audacieuses, une atmosphère chaleureuse et le plaisir d'être ensemble.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cuisine -->
+    <section id="cuisine" class="section-padding bg-green scroll-mt">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-eyebrow light">Notre cuisine</span>
+          <h2 class="section-title light">Fraîcheur et profondeur des saveurs.</h2>
+          <p class="section-subtitle light" style="margin-top:1rem">Notre cuisine réunit les saveurs indiennes contemporaines, les épices équilibrées et des ingrédients soigneusement sélectionnés.</p>
+        </div>
+        <div class="grid-2" style="margin-top:2rem">
+          <div class="cuisine-images animate-on-scroll animate-slide-left">
+            <div class="image-zoom-container image-card aspect-square"><img src="images/food-images/image5.webp" alt="Dessert maison Kurkuma"></div>
+            <div class="image-zoom-container image-card aspect-square"><img src="images/food-images/image4.webp" alt="Épices indiennes fraîches"></div>
+          </div>
+          <div class="animate-on-scroll animate-slide-right" style="display:flex;flex-direction:column;gap:1.5rem">
+            <p class="text-cream-muted" style="font-size:1.125rem;line-height:1.7">Le menu est pensé pour être partagé, apprécié au quotidien et mémorable autant pour son goût que pour son atmosphère.</p>
+            <p style="color:rgba(250,246,240,0.6);line-height:1.7">Des classiques réconfortants aux assiettes plus modernes, chaque plat est préparé avec attention du déjeuner jusqu'au dîner.</p>
+            <div class="stats-grid">
+              <div style="text-align:center"><span class="stat-value">100%</span><span class="stat-label">Frais</span></div>
+              <div style="text-align:center"><span class="stat-value">Authentiques</span><span class="stat-label">Épices</span></div>
+              <div style="text-align:center"><span class="stat-value">Au cœur</span><span class="stat-label">Partage</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partage -->
+    <section class="section-padding bg-cream">
+      <div class="container">
+        <div class="grid-2">
+          <div class="order-mobile-first animate-on-scroll animate-slide-right">
+            <div class="image-zoom-container image-card aspect-4-3" style="box-shadow:0 25px 50px rgba(0,0,0,0.15)">
+              <img src="images/restaurant-images-new/image14.webp" alt="Salle du restaurant Kurkuma — tables partagées">
+            </div>
+          </div>
+          <div class="order-mobile-second animate-on-scroll">
+            <span class="section-eyebrow">Le partage</span>
+            <h2 class="section-title" style="margin-bottom:1.25rem">Tables partagées,<br>moments simples.</h2>
+            <div class="brand-divider left" style="margin-bottom:1.5rem"><span class="brand-divider-diamond"></span></div>
+            <p class="text-warm-gray" style="line-height:1.7;margin-bottom:1.5rem">Kurkuma a été créé comme un lieu de quartier où chacun se sent le bienvenu. Étudiants, familles, collègues, couples et les habitués du quartier s'y retrouvent autour d'une cuisine généreuse et d'une hospitalité détendue.</p>
+            <p class="text-green" style="font-weight:500;font-style:italic;margin-bottom:2rem">Pour un déjeuner rapide, un dîner en famille ou une soirée entre amis, il y a toujours une place à table.</p>
+            <div class="partage-highlights">
+              <div class="highlight-item">
+                <svg class="highlight-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <h4 class="highlight-title">Étudiants &amp; familles</h4>
+                <p class="highlight-text">Un lieu de quartier où chacun se sent le bienvenu.</p>
+              </div>
+              <div class="highlight-item">
+                <svg class="highlight-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <h4 class="highlight-title">Collègues &amp; couples</h4>
+                <p class="highlight-text">Cuisine généreuse et hospitalité détendue.</p>
+              </div>
+              <div class="highlight-item">
+                <svg class="highlight-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                <h4 class="highlight-title">Les habitués</h4>
+                <p class="highlight-text">Il y a toujours une place à table.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soirées -->
+    <section id="soirees" class="section-padding soirees-section scroll-mt">
+      <div class="soirees-bg">
+        <img src="images/restaurant-images-new/image10.webp" alt="Cocktails et soirées chez Kurkuma">
+        <div class="soirees-overlay"></div>
+      </div>
+      <div class="container soirees-content animate-on-scroll">
+        <span class="section-eyebrow light">Soirées &amp; Cocktails</span>
+        <h2 class="section-title light" style="margin-bottom:1.25rem">Les soirées chez Kurkuma.</h2>
+        <div class="brand-divider light" style="margin:0 auto 1.5rem"><span class="brand-divider-diamond"></span></div>
+        <p class="text-cream-muted" style="max-width:42rem;margin:0 auto 1rem;line-height:1.7">Cocktails signatures, lumières chaleureuses et cuisine pleine de caractère donnent le ton des soirées chez Kurkuma.</p>
+        <p class="text-yellow" style="font-style:italic;margin-bottom:2rem">Un lieu pour ralentir, partager et profiter du moment.</p>
+        <a href="menu.html#boissons" class="btn btn-primary">Découvrir les Cocktails</a>
+      </div>
+    </section>
+
+    <!-- Galerie -->
+    <section id="galerie" class="section-padding bg-cream scroll-mt">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-eyebrow">Galerie</span>
+          <h2 class="section-title">Suivez l'atmosphère.</h2>
+          <p class="section-subtitle" style="margin-top:1rem">Des assiettes fraîches, des soirées chaleureuses et les moments du quotidien chez Kurkuma.</p>
+        </div>
+        <div class="gallery-grid animate-on-scroll" style="margin-top:2rem">
+          <a href="https://www.instagram.com/Kurkuma.Luxembourg" target="_blank" rel="noopener" class="gallery-item image-zoom-container">
+            <img src="images/restaurant-images-new/image11.webp" alt="Galerie Kurkuma 1">
+            <div class="gallery-overlay"><svg class="gallery-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          </a>
+          <a href="https://www.instagram.com/Kurkuma.Luxembourg" target="_blank" rel="noopener" class="gallery-item image-zoom-container">
+            <img src="images/restaurant-images-new/image12.webp" alt="Galerie Kurkuma 2">
+            <div class="gallery-overlay"><svg class="gallery-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          </a>
+          <a href="https://www.instagram.com/Kurkuma.Luxembourg" target="_blank" rel="noopener" class="gallery-item image-zoom-container">
+            <img src="images/food-images/image5.webp" alt="Galerie Kurkuma 3">
+            <div class="gallery-overlay"><svg class="gallery-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          </a>
+          <a href="https://www.instagram.com/Kurkuma.Luxembourg" target="_blank" rel="noopener" class="gallery-item image-zoom-container">
+            <img src="images/food-images/image4.webp" alt="Galerie Kurkuma 4">
+            <div class="gallery-overlay"><svg class="gallery-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          </a>
+          <a href="https://www.instagram.com/Kurkuma.Luxembourg" target="_blank" rel="noopener" class="gallery-item image-zoom-container">
+            <img src="images/food-images/image8.webp" alt="Galerie Kurkuma 5">
+            <div class="gallery-overlay"><svg class="gallery-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          </a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-top:3rem" class="animate-on-scroll">
+          <a href="https://www.instagram.com/Kurkuma.Luxembourg" class="btn btn-outline-green" target="_blank" rel="noopener">kurkuma.luxembourg</a>
+          <a href="https://www.facebook.com/GairolaZ" class="btn btn-outline-green" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-padding bg-green grain-overlay">
+      <div class="container animate-on-scroll" style="text-align:center">
+        <span class="section-eyebrow light">Ettelbruck</span>
+        <h2 class="section-title light" style="margin-bottom:1.25rem">Rejoignez-nous à Ettelbruck.</h2>
+        <div class="brand-divider light" style="margin:0 auto 1.5rem"><span class="brand-divider-diamond"></span></div>
+        <p class="text-cream-muted" style="max-width:42rem;margin:0 auto 2.5rem;line-height:1.7">Une cuisine indienne contemporaine pensée autour de produits frais, du partage et d'une hospitalité chaleureuse.</p>
+        <div class="cta-buttons">
+          <button type="button" class="btn btn-primary" data-open-reservation>Réserver une Table</button>
+          <a href="Menu_Kurkuma_Final.pdf" class="btn btn-outline" target="_blank" rel="noopener">Voir le Menu</a>
+          <a href="https://www.instagram.com/Kurkuma.Luxembourg" class="btn btn-ghost" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/GairolaZ" class="btn btn-ghost" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section-padding bg-cream scroll-mt">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-eyebrow">Contact &amp; Réservation</span>
+          <h2 class="section-title">Venez nous rendre visite</h2>
+          <div class="brand-divider" style="margin:1.5rem auto 0"><span class="brand-divider-diamond"></span></div>
+        </div>
+        <div class="grid-contact animate-on-scroll" style="margin-top:2.5rem">
+          <div class="brand-card contact-card" style="border-radius:2px">
+            <svg class="contact-card-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <h3>Adresse</h3>
+            <p class="text-warm-gray" style="line-height:1.7">5, rue Tschiderer, L 9049 Ettelbruck</p>
+            <a href="https://maps.google.com/?q=5+rue+Tschiderer+Ettelbruck+Luxembourg" target="_blank" rel="noopener" class="text-green" style="display:inline-flex;margin-top:1rem;font-size:0.875rem;text-decoration:underline;text-underline-offset:4px">Voir sur Google Maps</a>
+          </div>
+          <div class="brand-card contact-card" style="border-radius:2px">
+            <svg class="contact-card-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <h3>Réservation</h3>
+            <p class="text-warm-gray" style="margin-bottom:1rem">Réservez en ligne ou appelez-nous directement.</p>
+            <button type="button" class="btn btn-outline-green btn-full" style="margin-bottom:1rem" data-open-reservation>Réserver en ligne</button>
+            <a href="tel:+35226300605" class="text-green" style="font-size:1.125rem;font-weight:500">+352 26 30 06 05</a>
+            <div style="margin-top:1rem;display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap">
+              <svg class="text-yellow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:Kurkuma.lu@gmail.com" class="text-warm-gray" style="font-size:0.875rem;word-break:break-all">Kurkuma.lu@gmail.com</a>
+            </div>
+          </div>
+          <div class="brand-card contact-card" style="border-radius:2px">
+            <svg class="contact-card-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <h3>Horaires</h3>
+            <ul>
+              <li class="hours-row"><span>Mardi – Dimanche</span><span class="hours-time">11:30 – 14:00</span></li>
+              <li class="hours-row"><span>Mardi – Samedi</span><span class="hours-time">18:00 – 21:30</span></li>
+              <li class="hours-row"><span>Lundi – Dimanche soir</span><span class="hours-time">Fermé</span></li>
+            </ul>
+            <div style="margin-top:1.5rem;display:flex;gap:0.5rem;font-size:0.75rem;color:var(--kurkuma-warm-gray)">
+              <svg class="text-yellow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <span>Parking communal gratuit pendant les heures de déjeuner et en soirée.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer grain-overlay">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-vertical.png" alt="Kurkuma" class="footer-logo">
+          <p class="footer-tagline">Cuisine fraîche • Tables partagées • Hospitalité chaleureuse</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-list">
+            <li class="footer-row"><span class="footer-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>5, rue Tschiderer, L 9049 Ettelbruck</span></li>
+            <li><a href="tel:+35226300605" class="footer-row"><span class="footer-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>+352 26 30 06 05</span></a></li>
+            <li><a href="tel:+352621960076" class="footer-row"><span class="footer-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>+352 621 960 076</span></a></li>
+            <li><a href="mailto:Kurkuma.lu@gmail.com" class="footer-row"><span class="footer-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span>Kurkuma.lu@gmail.com</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Horaires</h4>
+          <ul class="footer-list">
+            <li class="footer-row"><span class="footer-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span><span class="footer-hours-days">Mardi – Dimanche</span><span class="footer-hours-time">11:30 – 14:00</span></span></li>
+            <li class="footer-row"><span class="footer-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span><span class="footer-hours-days">Mardi – Samedi</span><span class="footer-hours-time">18:00 – 21:30</span></span></li>
+            <li class="footer-row"><span class="footer-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span><span class="footer-hours-days">Lundi – Dimanche soir</span><span class="footer-hours-time">Fermé</span></span></li>
+          </ul>
+          <p class="footer-parking">Parking communal gratuit pendant les heures de déjeuner et en soirée.</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Suivez-nous</h4>
+          <ul class="footer-list">
+            <li><a href="https://www.instagram.com/Kurkuma.Luxembourg" class="footer-row" target="_blank" rel="noopener"><span class="footer-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span>kurkuma.luxembourg</span></a></li>
+            <li><a href="https://www.facebook.com/GairolaZ" class="footer-row" target="_blank" rel="noopener"><span class="footer-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span><span>Facebook</span></a></li>
+          </ul>
+          <div class="footer-quick-links">
+            <h4 class="footer-heading">Liens rapides</h4>
+            <ul class="footer-links-grid">
+              <li><a href="Menu_Kurkuma_Final.pdf" class="footer-link" target="_blank" rel="noopener">Menu</a></li>
+              <li><a href="#esprit" class="footer-link">Esprit</a></li>
+              <li><a href="#cuisine" class="footer-link">Cuisine</a></li>
+              <li><a href="#soirees" class="footer-link">Soirées</a></li>
+              <li><a href="#galerie" class="footer-link">Galerie</a></li>
+              <li><a href="#contact" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider-wrap"><div class="brand-divider light"><span class="brand-divider-diamond"></span></div></div>
+      <div class="footer-bottom">
+        <p>Kurkuma — cuisine indienne contemporaine, Ettelbruck, Luxembourg</p>
+        <p>© <span id="footer-year"></span> Kurkuma. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Reservation Modal -->
+  <div class="modal-backdrop" id="reservation-modal" role="dialog" aria-modal="true" aria-label="Réservation">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2 class="modal-title">Réserver</h2>
+        <div class="modal-header-actions">
+          <button type="button" class="lang-toggle" id="lang-toggle">EN</button>
+          <button type="button" class="modal-close" id="modal-close" aria-label="Fermer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-step active" id="step-booking">
+          <p class="modal-policy" id="modal-policy"></p>
+          <div class="accordion-section">
+            <button type="button" class="accordion-trigger"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span id="accordion-guests-label">2 convives</span></button>
+            <div class="accordion-content open"><div class="guest-grid" id="guest-grid"></div><p class="large-group-notice" id="large-group-notice" hidden></p></div>
+          </div>
+          <div class="accordion-section">
+            <button type="button" class="accordion-trigger"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span id="accordion-date-label">Date</span></button>
+            <div class="accordion-content"><div class="date-grid" id="date-grid"></div></div>
+          </div>
+          <div class="accordion-section">
+            <button type="button" class="accordion-trigger"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg><span id="accordion-seating-label">Aucune préférence</span></button>
+            <div class="accordion-content"><div class="seating-list" id="seating-list"></div></div>
+          </div>
+          <div class="accordion-section">
+            <button type="button" class="accordion-trigger"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span id="accordion-time-label">Heure</span></button>
+            <div class="accordion-content">
+              <div class="time-section"><div class="time-section-header"><span id="lunch-label">Déjeuner / Lunch</span></div><div class="time-slots" id="lunch-slots"></div></div>
+              <div class="time-section"><div class="time-section-header"><span id="dinner-label">Dîner / Dinner</span></div><div class="time-slots" id="dinner-slots"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-step" id="step-contact">
+          <h3 style="font-family:var(--font-display);font-size:1.25rem;margin-bottom:1rem">Vos coordonnées</h3>
+          <div class="booking-summary" id="booking-summary"></div>
+          <form id="contact-form">
+            <div class="form-group"><label for="name">Nom complet</label><input type="text" id="name" name="name" required placeholder="Votre nom"></div>
+            <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" name="email" required placeholder="votre@email.com"></div>
+            <div class="form-group"><label for="phone">Téléphone</label><input type="tel" id="phone" name="phone" required placeholder="+352 ..."></div>
+          </form>
+          <button type="button" class="btn btn-outline-green" id="back-to-booking" style="margin-top:0.5rem">Retour</button>
+        </div>
+        <div class="modal-step" id="step-success">
+          <div class="modal-message">
+            <h3 id="success-title">Demande de réservation envoyée !</h3>
+            <p id="success-detail">Nous confirmerons votre réservation sous peu.</p>
+            <button type="button" class="btn btn-primary" id="close-success">Fermer</button>
+          </div>
+        </div>
+        <div class="modal-step" id="step-error">
+          <div class="modal-message">
+            <h3>Erreur</h3>
+            <p id="error-message">Une erreur est survenue. Merci de nous appeler.</p>
+            <p><a href="tel:+35226300605" id="error-phone" class="text-green" style="font-weight:600">+352 26 30 06 05</a></p>
+            <button type="button" class="btn btn-primary" id="retry-reservation" style="margin-right:0.5rem">Réessayer</button>
+            <button type="button" class="btn btn-outline-green" id="close-error">Fermer</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" id="modal-footer">
+        <button type="button" class="modal-reserve-btn" id="modal-reserve-btn">Réserver</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/reservation.js"></script>
+</body>
+</html>
