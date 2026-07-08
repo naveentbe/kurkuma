@@ -14,7 +14,7 @@ const SITE = {
 };
 
 const GOOGLE_SHEETS_WEB_APP_URL =
-  "https://script.google.com/macros/s/AKfycbxih52d7BZC85VdtyYIXuGxHIdGDUFS3TxzDJyWSB8LZTlleyU56yIWAS5kaoMQbyFfdw/exec";
+  "https://script.google.com/macros/s/AKfycbz5h9R5N_9xaISfDjRQDjCN11imkv2oX1L-hoS_8TD9sbLwLZ_cZrZWWKtyu5ZF7sSm-g/exec";
 
 const HOURS = [
   { days: "Mardi – Dimanche", time: "11:30 – 14:00" },
