@@ -11,8 +11,8 @@
  * 5. Test a booking from the website
  */
 
-var SHEET_ID = "18xCKnZUM2bU7u54BMmbZHBG01eInNTg2TRQgyJ5OumY";
-var NOTIFY_EMAIL = "reservation.kurkuma@gmail.com";
+var SHEET_ID = "17ckjZrOc3lYEIcw14msYgmnt6Rp3QKqsr6w_9vuCc94";
+var NOTIFY_EMAIL = "Reservation.kurkuma3@gmail.com";
 
 function getSheet_() {
   if (SHEET_ID) {
