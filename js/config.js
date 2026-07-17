@@ -19,7 +19,7 @@ const GOOGLE_SHEETS_WEB_APP_URL =
 const HOURS = [
   { days: "Mardi – Dimanche", time: "11:30 – 14:00" },
   { days: "Mardi – Samedi", time: "18:00 – 21:30" },
-  { days: "Lundi – Dimanche soir", time: "Fermé" },
+  { days: "Lundi – Dimanche soir", time: "Closed" },
 ];
 
 const NAV_LINKS = [
