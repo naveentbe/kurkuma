@@ -9,7 +9,7 @@
 
   const pageName = window.location.pathname.split("/").pop() || "index.html";
   const isHome = pageName === "index.html" || pageName === "";
-  const sectionIds = ["esprit", "cuisine", "soirees", "galerie", "contact"];
+  const sectionIds = ["esprit", "cuisine", "galerie", "contact"];
 
   function setMobileMenu(open) {
     if (!mobileMenu || !menuToggle) return;

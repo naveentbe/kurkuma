@@ -1,7 +1,7 @@
 const SITE = {
   name: "Kurkuma",
   tagline: "cuisine indienne contemporaine",
-  address: "5, rue Tschiderer, L 9049 Ettelbruck",
+  address: "5, rue Tschiderer, L 9094 Ettelbruck",
   phone: "+352 26 30 06 05",
   phoneSecondary: "+352 621 960 076",
   email: "Kurkuma.lu@gmail.com",
@@ -26,7 +26,6 @@ const NAV_LINKS = [
   { label: "Accueil", href: "index.html" },
   { label: "Esprit", href: "index.html#esprit" },
   { label: "Cuisine", href: "index.html#cuisine" },
-  { label: "Soirées", href: "index.html#soirees" },
   { label: "Galerie", href: "index.html#galerie" },
   { label: "Contact", href: "index.html#contact" },
 ];
